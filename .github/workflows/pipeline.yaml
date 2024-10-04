@@ -43,15 +43,15 @@ jobs:
       - name: Compile SCSS
         run: |
           sass . --no-source-map
-      - name: Clean up files
+      - name: Prepare ZIP
         run: |
-          find . -type f -name "*.scss" -delete
-          rm -rd .github/
-          rm -rdf .git/
-          rm CODEOWNERS
+          mkdir huettenbau-oberi-theme
+          mv *.css huettenbau-oberi-theme/
+          mv *.php huettenbau-oberi-theme/
+          mv LICENSE huettenbau-oberi-theme/
       - name: ZIP theme
         run: |
-          zip -r huettenbau-oberi-theme.zip .
+          zip -r huettenbau-oberi-theme.zip huettenbau-oberi-theme/
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
