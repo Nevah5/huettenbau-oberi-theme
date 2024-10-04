@@ -1,0 +1,53 @@
+name: Compile Theme
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build:
+    env:
+      FILE_HEADER: |
+        /*
+        Theme Name: My Custom Theme
+        Theme URI: https://yourwebsite.com/theme
+        Author: Your Name
+        Author URI: https://yourwebsite.com
+        Description: This is my first custom theme!
+        Version: 1.0.0
+        License: GNU General Public License v2 or later
+        License URI: <https://www.gnu.org/licenses/gpl-2.0.html>
+        Text Domain: my-custom-theme
+        Tags: custom-background
+        */
+    name: Build Theme
+    runs-on:
+      labels: self-hosted
+    steps:
+      - name: Setup dependencies
+        run: |
+          npm install -g sass
+      - name: Add header to all files
+        run: |
+          for file in $(find . -type f -regex '.*\.\(scss\|php\)$'); do
+            echo ${{ env.FILE_HEADER }} | cat - $file > temp && mv temp $file
+          done
+      - name: Compile SCSS
+        run: |
+          sass . --no-source
+      - name: Clean up files
+        run: |
+          find . -type f -name "*.scss" -delete
+          rm -rd .github/
+          rm CODEOWNERS
+      - name: ZIP theme
+        run: |
+          zip -r huettenbau-oberi-theme.zip .
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: huettenbau-oberi-theme
+          retention-days: 1
+          path: huettenbau-oberi-theme.zip
