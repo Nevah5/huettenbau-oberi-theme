@@ -35,23 +35,24 @@ jobs:
       - name: Setup dependencies
         run: |
           npm install -g sass
+          - name: Compile SCSS
+          run: |
+          sass . --no-source-map
       - name: Add header to all files
         run: |
           for file in $(find . -type f -regex '.*\.\(scss\|php\)$'); do
             echo '${{ env.FILE_HEADER }}' | cat - $file > temp && mv temp $file
           done
-      - name: Compile SCSS
-        run: |
-          sass . --no-source-map
       - name: Prepare ZIP
         run: |
-          mkdir huettenbau-oberi-theme
-          mv *.css huettenbau-oberi-theme/
-          mv *.php huettenbau-oberi-theme/
-          mv LICENSE huettenbau-oberi-theme/
+          mkdir build
+          cp *.css huettenbau-oberi-theme/
+          cp *.php huettenbau-oberi-theme/
+          cp LICENSE huettenbau-oberi-theme/
       - name: ZIP theme
         run: |
-          zip -r huettenbau-oberi-theme.zip huettenbau-oberi-theme/
+          cd huettenbau-oberi-theme/
+          zip -r huettenbau-oberi-theme.zip .
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
