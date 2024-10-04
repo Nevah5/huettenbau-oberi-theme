@@ -11,16 +11,16 @@ jobs:
     env:
       FILE_HEADER: |
         /*
-        Theme Name: My Custom Theme
-        Theme URI: https://yourwebsite.com/theme
-        Author: Your Name
-        Author URI: https://yourwebsite.com
-        Description: This is my first custom theme!
+        Theme Name: Hüttenbau Oberi Theme
+        Theme URI: https://github.com/Nevah5/huettenbau-oberi-theme
+        Author: Noah Geeler
+        Author URI: https://noah.geeler.net
+        Description: Hüttenbau Oberi Theme
         Version: 1.0.0
-        License: GNU General Public License v2 or later
-        License URI: <https://www.gnu.org/licenses/gpl-2.0.html>
-        Text Domain: my-custom-theme
-        Tags: custom-background
+        License: GNU General Public License v3
+        License URI: <https://www.gnu.org/licenses/gpl-3.0.html>
+        Text Domain: huettenbau-oberi-theme
+        Tags: huettenbau-oberi
         */
     name: Build Theme
     runs-on:
