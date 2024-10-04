@@ -35,8 +35,8 @@ jobs:
       - name: Setup dependencies
         run: |
           npm install -g sass
-          - name: Compile SCSS
-          run: |
+      - name: Compile SCSS
+        run: |
           sass . --no-source-map
       - name: Add header to all files
         run: |
