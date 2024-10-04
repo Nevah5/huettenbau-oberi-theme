@@ -40,7 +40,7 @@ jobs:
           done
       - name: Compile SCSS
         run: |
-          sass . --no-source
+          sass . --no-source-map
       - name: Clean up files
         run: |
           find . -type f -name "*.scss" -delete
