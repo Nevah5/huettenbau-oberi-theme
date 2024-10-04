@@ -46,12 +46,12 @@ jobs:
       - name: Prepare ZIP
         run: |
           mkdir build
-          cp *.css huettenbau-oberi-theme/
-          cp *.php huettenbau-oberi-theme/
-          cp LICENSE huettenbau-oberi-theme/
+          cp *.css build/
+          cp *.php build/
+          cp LICENSE build/
       - name: ZIP theme
         run: |
-          cd huettenbau-oberi-theme/
+          cd build/
           zip -r huettenbau-oberi-theme.zip .
       - name: Upload artifact
         uses: actions/upload-artifact@v4
