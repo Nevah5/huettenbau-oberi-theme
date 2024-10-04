@@ -47,6 +47,7 @@ jobs:
         run: |
           find . -type f -name "*.scss" -delete
           rm -rd .github/
+          rm -rdf .git/
           rm CODEOWNERS
       - name: ZIP theme
         run: |
