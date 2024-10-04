@@ -53,6 +53,7 @@ jobs:
         run: |
           cd build/
           zip -r huettenbau-oberi-theme.zip .
+          mv huettenbau-oberi-theme.zip ../
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
