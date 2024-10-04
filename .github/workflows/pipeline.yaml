@@ -49,14 +49,9 @@ jobs:
           cp *.css build/
           cp *.php build/
           cp LICENSE build/
-      - name: ZIP theme
-        run: |
-          cd build/
-          zip -r huettenbau-oberi-theme.zip .
-          mv huettenbau-oberi-theme.zip ../
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: huettenbau-oberi-theme
           retention-days: 1
-          path: huettenbau-oberi-theme.zip
+          path: build/*
