@@ -38,11 +38,9 @@ jobs:
       - name: Compile SCSS
         run: |
           sass . --no-source-map
-      - name: Add header to all files
+      - name: Add header to style.css
         run: |
-          for file in $(find . -type f -regex '.*\.\(scss\|php\)$'); do
-            echo '${{ env.FILE_HEADER }}' | cat - $file > temp && mv temp $file
-          done
+          echo '${{ env.FILE_HEADER }}' | cat - style.css > temp && mv temp style.css
       - name: Prepare ZIP
         run: |
           mkdir build
