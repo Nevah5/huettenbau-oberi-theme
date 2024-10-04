@@ -1,4 +1,4 @@
-name: Compile Theme
+name: Pipeline
 
 on:
   push:
@@ -26,6 +26,10 @@ jobs:
     runs-on:
       labels: self-hosted
     steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
       - name: Setup dependencies
         run: |
           npm install -g sass
