@@ -21,7 +21,7 @@ jobs:
       - name: Get current version
         id: get_version
         run: |
-          git fetch origin main --tags
+          git fetch origin main --tags --force
           git checkout main
           latest=$(git describe --tags --abbrev=0)
           develop=$(git describe --tags $(git rev-list --tags --max-count=1))
