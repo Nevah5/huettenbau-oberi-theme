@@ -124,6 +124,8 @@ jobs:
     needs:
       - build
       - versioning
+    permissions:
+      contents: write
     runs-on:
       labels: self-hosted
     steps:
