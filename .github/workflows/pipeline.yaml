@@ -121,7 +121,9 @@ jobs:
           path: build/*
   release:
     name: GitHub Release
-    needs: build
+    needs:
+      - build
+      - versioning
     runs-on:
       labels: self-hosted
     steps:
