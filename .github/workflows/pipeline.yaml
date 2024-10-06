@@ -120,10 +120,15 @@ jobs:
           retention-days: 1
           path: build/*
   release:
+    name: GitHub Release
     needs: build
     runs-on:
       labels: self-hosted
     steps:
+      - name: Setup tmp directory
+        run: |
+          mkdir tmp
+          cd tmp
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
@@ -131,3 +136,11 @@ jobs:
       - name: debug
         run: |
           ls -la
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "release.tar.gz,foo/*.txt"
+          bodyFile: "body.md"
+      - name: Clean up tmp directory
+        run: |
+          cd ../
+          rm -rf tmp
