@@ -19,12 +19,15 @@ jobs:
         uses: actions/checkout@v4
       - name: Set version
         run: |
-          git fetch origin main
+          git fetch origin main --tags
           git checkout main
           latest=$(git describe --tags --abbrev=0)
           develop=$(git describe --tags $(git rev-list --tags --max-count=1))
           echo "LATEST=$latest" >> $GITHUB_OUTPUT
           echo "LATEST=$latest" >> $GITHUB_OUTPUT
+
+          echo Release version: $latest
+          echo Develop version: $develop
   build:
     needs: versioning
     env:
