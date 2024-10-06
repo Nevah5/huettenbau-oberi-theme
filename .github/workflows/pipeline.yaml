@@ -7,7 +7,26 @@ on:
       - develop
 
 jobs:
+  versioning:
+    runs-on:
+      labels: self-hosted
+    name: Versioning
+    outputs:
+      LATEST: ${{ steps.set_version.outputs.LATEST }}
+      DEVELOP: ${{ steps.set_version.outputs.DEVELOP }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set version
+        run: |
+          git fetch origin main
+          git checkout main
+          latest=$(git describe --tags --abbrev=0)
+          develop=$(git describe --tags $(git rev-list --tags --max-count=1))
+          echo "LATEST=$latest" >> $GITHUB_OUTPUT
+          echo "LATEST=$latest" >> $GITHUB_OUTPUT
   build:
+    needs: versioning
     env:
       FILE_HEADER: |
         /*
