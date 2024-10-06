@@ -58,6 +58,9 @@ jobs:
           echo "VERSION=$version" >> $GITHUB_OUTPUT
       - name: Push tag
         run: |
+          if [[ ${{ github.ref_name }} == 'develop' ]]; then
+            git checkout develop
+          fi
           git tag ${{ steps.set_version.outputs.VERSION }}
           git push --tags
   build:
