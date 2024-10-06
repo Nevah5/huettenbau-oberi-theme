@@ -128,19 +128,24 @@ jobs:
       - name: Setup tmp directory
         run: |
           mkdir tmp
-          cd tmp
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: huettenbau-oberi-theme
+          path: tmp
       - name: debug
         run: |
+          cd tmp
           ls -la
-      - uses: ncipollo/release-action@v1
-        with:
-          artifacts: "release.tar.gz,foo/*.txt"
-          bodyFile: "body.md"
+      - name: Create zip
+        run: |
+          cd tmp
+          zip -r huettenbau-oberi-theme.zip .
+          mv huettenbau-oberi-theme.zip ..
       - name: Clean up tmp directory
         run: |
-          cd ../
           rm -rf tmp
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "huettenbau-oberi-theme.zip"
+          bodyFile: "body.md"
