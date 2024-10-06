@@ -146,6 +146,8 @@ jobs:
           cd tmp
           zip -r huettenbau-oberi-theme.zip .
           mv huettenbau-oberi-theme.zip ..
+          cd ..
+          mv huettbau-oberi-theme.zip huettenbau-oberi-theme_${{ needs.versioning.outputs.VERSION }}.zip
       - name: Clean up tmp directory
         run: |
           rm -rf tmp
@@ -154,6 +156,6 @@ jobs:
           name: Version ${{ needs.versioning.outputs.VERSION }}
           tag: ${{ needs.versioning.outputs.VERSION }}
           prerelease: ${{ github.ref_name == 'develop' }}
-          artifacts: "huettenbau-oberi-theme.zip"
+          artifacts: "huettenbau-oberi-theme_${{ needs.versioning.outputs.VERSION }}.zip"
           generateReleaseNotes: true
           makeLatest: true
