@@ -147,7 +147,7 @@ jobs:
           zip -r huettenbau-oberi-theme.zip .
           mv huettenbau-oberi-theme.zip ..
           cd ..
-          mv huettbau-oberi-theme.zip huettenbau-oberi-theme_${{ needs.versioning.outputs.VERSION }}.zip
+          mv huettenbau-oberi-theme.zip huettenbau-oberi-theme_${{ needs.versioning.outputs.VERSION }}.zip
       - name: Clean up tmp directory
         run: |
           rm -rf tmp
