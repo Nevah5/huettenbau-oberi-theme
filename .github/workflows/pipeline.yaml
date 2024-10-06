@@ -17,14 +17,18 @@ jobs:
       VERSION: ${{ steps.set_version.outputs.VERSION }}
     steps:
       - name: Checkout code
+        if: github.ref_name == 'develop'
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          fetch-tags: true
       - name: Get current version
         id: get_version
         run: |
-          git fetch origin main --tags --force
-          git checkout main
-          latest=$(git describe --tags --abbrev=0)
+          latest=$(git describe --tags --exact-match --abbrev=0)
           develop=$(git describe --tags $(git rev-list --tags --max-count=1))
+
           echo "LATEST=$latest" >> $GITHUB_OUTPUT
           echo "DEVELOP=$develop" >> $GITHUB_OUTPUT
 
@@ -56,11 +60,13 @@ jobs:
           fi
 
           echo "VERSION=$version" >> $GITHUB_OUTPUT
+      - name: Checkout develop
+        if: github.ref_name == 'develop'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Push tag
         run: |
-          if [[ ${{ github.ref_name }} == 'develop' ]]; then
-            git checkout develop
-          fi
           git tag ${{ steps.set_version.outputs.VERSION }}
           git push --tags
   build:
