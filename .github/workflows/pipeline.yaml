@@ -25,8 +25,12 @@ jobs:
       - name: Get current version
         id: get_version
         run: |
-          latest=$(git describe --tags --exact-match --abbrev=0)
           develop=$(git describe --tags $(git rev-list --tags --max-count=1)) # gets the latest tag on all branches
+          if [[ ${{ github.ref_name }} == 'main' ]]; then
+            latest=$develop
+          else
+            latest=$(git describe --tags --exact-match --abbrev=0)
+          fi
 
           echo "LATEST=$latest" >> $GITHUB_OUTPUT
           echo "DEVELOP=$develop" >> $GITHUB_OUTPUT
