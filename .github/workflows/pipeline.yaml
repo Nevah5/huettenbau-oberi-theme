@@ -11,23 +11,55 @@ jobs:
     runs-on:
       labels: self-hosted
     name: Versioning
+    permissions:
+      contents: write
     outputs:
-      LATEST: ${{ steps.set_version.outputs.LATEST }}
-      DEVELOP: ${{ steps.set_version.outputs.DEVELOP }}
+      VERSION: ${{ steps.set_version.outputs.VERSION }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Set version
+      - name: Get current version
+        id: get_version
         run: |
           git fetch origin main --tags
           git checkout main
           latest=$(git describe --tags --abbrev=0)
           develop=$(git describe --tags $(git rev-list --tags --max-count=1))
           echo "LATEST=$latest" >> $GITHUB_OUTPUT
-          echo "LATEST=$latest" >> $GITHUB_OUTPUT
+          echo "DEVELOP=$develop" >> $GITHUB_OUTPUT
 
           echo Release version: $latest
           echo Develop version: $develop
+      - name: Set new version
+        id: set_version
+        run: |
+          latest=${{ steps.get_version.outputs.LATEST }}
+          latest_minor=$(echo $latest | awk -F. '{print $2}')
+          latest_patch=$(echo $latest | awk -F. '{print $3}')
+
+          develop=${{ steps.get_version.outputs.DEVELOP }}
+          develop_major=$(echo $develop | awk -F. '{print $1}' | cut -d'v' -f2)
+          develop_minor=$(echo $develop | awk -F. '{print $2}')
+          develop_patch=$(echo $develop | awk -F. '{print $3}' | cut -d'-dev' -f1)
+
+
+          if [[ ${{ github.ref_name }} == 'develop' ]]; then
+            if [[ ${{ vars.MAJOR_VERSION }} != $develop_major ]]; then
+              version=v$((develop_major + 1)).0.0-dev
+            elif [[ $(echo $develop | cut -d'-dev' -f1) == $latest ]]; then
+              version=v$develop_major.$((develop_minor + 1)).0-dev
+            else
+              version=v$develop_major.$develop_minor.$((develop_patch + 1))-dev
+            fi
+          else
+            version=$(echo $develop | cut -d'-dev' -f1)
+          fi
+
+          echo "VERSION=$version" >> $GITHUB_OUTPUT
+      - name: Push tag
+        run: |
+          git tag ${{ steps.set_version.outputs.VERSION }}
+          git push --tags
   build:
     needs: versioning
     env:
