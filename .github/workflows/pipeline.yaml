@@ -147,5 +147,9 @@ jobs:
           rm -rf tmp
       - uses: ncipollo/release-action@v1
         with:
+          name: Version ${{ needs.versioning.outputs.VERSION }}
+          tag: ${{ needs.versioning.outputs.VERSION }}
+          prerelease: ${{ github.ref_name == 'develop' }}
           artifacts: "huettenbau-oberi-theme.zip"
-          bodyFile: "body.md"
+          generateReleaseNotes: true
+          makeLatest: true
