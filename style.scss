@@ -41,9 +41,10 @@ body {
     background-color: $color-primary;
     color: $color-background;
     border: none;
-    padding: $size-xl $size-sm;
+    padding: $size-sm $size-xl;
     border-radius: $button-border-radius;
     text-transform: uppercase;
+    font-weight: bold;
   }
 
   &.button-primary > a {

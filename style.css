@@ -21,9 +21,10 @@ body {
   background-color: #9dd1de;
   color: #ffffff;
   border: none;
-  padding: 1.5rem 0.75rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 5px;
   text-transform: uppercase;
+  font-weight: bold;
 }
 .wp-block-button.button-primary > a {
   background-color: #9dd1de;
