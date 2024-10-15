@@ -47,35 +47,35 @@ body {
     font-weight: bold;
   }
 
-  &.button-primary > a {
+  &.style-primary > a {
     background-color: $color-primary;
     color: $color-background;
   }
 
-  &.button-secondary > a {
+  &.style-secondary > a {
     background-color: $color-background;
     color: $color-secondary;
     border: $color-secondary solid $button-border-width;
   }
 
-  &.button-transparent > a {
+  &.style-transparent > a {
     background-color: transparent;
     color: $color-secondary;
   }
 
-  &.button-plain > a {
+  &.style-plain > a {
     background-color: transparent;
     padding: none;
     border-radius: 0;
     color: $color-secondary;
   }
 
-  &.button-destructive > a {
+  &.style-destructive > a {
     background-color: $color-accent;
     color: $color-background;
   }
 
-  &.button-destructive-secondary > a {
+  &.style-destructive-secondary > a {
     background-color: $color-background;
     color: $color-accent;
     border: $color-accent solid $button-border-width;

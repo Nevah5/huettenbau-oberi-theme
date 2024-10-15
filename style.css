@@ -26,30 +26,30 @@ body {
   text-transform: uppercase;
   font-weight: bold;
 }
-.wp-block-button.button-primary > a {
+.wp-block-button.style-primary > a {
   background-color: #9dd1de;
   color: #ffffff;
 }
-.wp-block-button.button-secondary > a {
+.wp-block-button.style-secondary > a {
   background-color: #ffffff;
   color: #3a3a3a;
   border: #3a3a3a solid 2px;
 }
-.wp-block-button.button-transparent > a {
+.wp-block-button.style-transparent > a {
   background-color: transparent;
   color: #3a3a3a;
 }
-.wp-block-button.button-plain > a {
+.wp-block-button.style-plain > a {
   background-color: transparent;
   padding: none;
   border-radius: 0;
   color: #3a3a3a;
 }
-.wp-block-button.button-destructive > a {
+.wp-block-button.style-destructive > a {
   background-color: #fa1717;
   color: #ffffff;
 }
-.wp-block-button.button-destructive-secondary > a {
+.wp-block-button.style-destructive-secondary > a {
   background-color: #ffffff;
   color: #fa1717;
   border: #fa1717 solid 2px;
