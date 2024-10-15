@@ -7,7 +7,73 @@ on:
       - develop
 
 jobs:
+  versioning:
+    runs-on:
+      labels: self-hosted
+    name: Versioning
+    permissions:
+      contents: write
+    outputs:
+      VERSION: ${{ steps.set_version.outputs.VERSION }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          fetch-tags: true
+      - name: Get current version
+        id: get_version
+        run: |
+          develop=$(git describe --tags $(git rev-list --tags --max-count=1)) # gets the latest tag on all branches
+          if [[ ${{ github.ref_name }} == 'main' ]]; then
+            latest=$develop
+          else
+            latest=$(git describe --tags --exact-match --abbrev=0)
+          fi
+
+          echo "LATEST=$latest" >> $GITHUB_OUTPUT
+          echo "DEVELOP=$develop" >> $GITHUB_OUTPUT
+
+          echo Release version: $latest
+          echo Develop version: $develop
+      - name: Set new version
+        id: set_version
+        run: |
+          latest=${{ steps.get_version.outputs.LATEST }}
+          latest_minor=$(echo $latest | awk -F. '{print $2}')
+          latest_patch=$(echo $latest | awk -F. '{print $3}')
+
+          develop=${{ steps.get_version.outputs.DEVELOP }}
+          develop_major=$(echo $develop | awk -F. '{print $1}' | cut -d'v' -f2)
+          develop_minor=$(echo $develop | awk -F. '{print $2}')
+          develop_patch=$(echo $develop | awk -F. '{print $3}' | cut -d'-' -f1)
+
+
+          if [[ ${{ github.ref_name }} == 'develop' ]]; then
+            if [[ ${{ vars.MAJOR_VERSION }} != $develop_major ]]; then
+              version=v$((develop_major + 1)).0.0-dev
+            elif [[ $(echo $develop | cut -d'-' -f1) == $latest ]]; then
+              version=v$develop_major.$((develop_minor + 1)).0-dev
+            else
+              version=v$develop_major.$develop_minor.$((develop_patch + 1))-dev
+            fi
+          else
+            version=$(echo $develop | cut -d'-' -f1)
+          fi
+
+          echo "VERSION=$version" >> $GITHUB_OUTPUT
+      - name: Checkout develop
+        if: github.ref_name == 'develop'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Push tag
+        run: |
+          git tag ${{ steps.set_version.outputs.VERSION }}
+          git push --tags
   build:
+    needs: versioning
     env:
       FILE_HEADER: |
         /*
@@ -16,7 +82,7 @@ jobs:
         Author: Noah Geeler
         Author URI: https://noah.geeler.net
         Description: Hüttenbau Oberi Theme
-        Version: 1.0.0
+        Version: ${{ needs.versioning.outputs.VERSION }}
         License: GNU General Public License v3
         License URI: <https://www.gnu.org/licenses/gpl-3.0.html>
         Text Domain: huettenbau-oberi-theme
@@ -53,3 +119,43 @@ jobs:
           name: huettenbau-oberi-theme
           retention-days: 1
           path: build/*
+  release:
+    name: GitHub Release
+    needs:
+      - build
+      - versioning
+    permissions:
+      contents: write
+    runs-on:
+      labels: self-hosted
+    steps:
+      - name: Setup tmp directory
+        run: |
+          mkdir tmp
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: huettenbau-oberi-theme
+          path: tmp
+      - name: debug
+        run: |
+          cd tmp
+          ls -la
+      - name: Create zip
+        run: |
+          cd tmp
+          zip -r huettenbau-oberi-theme.zip .
+          mv huettenbau-oberi-theme.zip ..
+          cd ..
+          mv huettenbau-oberi-theme.zip huettenbau-oberi-theme_${{ needs.versioning.outputs.VERSION }}.zip
+      - name: Clean up tmp directory
+        run: |
+          rm -rf tmp
+      - uses: ncipollo/release-action@v1
+        with:
+          name: Version ${{ needs.versioning.outputs.VERSION }}
+          tag: ${{ needs.versioning.outputs.VERSION }}
+          prerelease: ${{ github.ref_name == 'develop' }}
+          artifacts: "huettenbau-oberi-theme_${{ needs.versioning.outputs.VERSION }}.zip"
+          generateReleaseNotes: true
+          makeLatest: true
