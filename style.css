@@ -1,3 +1,55 @@
+/* COLORS */
+/* SIZES */
+/* BASIC STYLES */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+  line-height: 1.5;
+}
 
+body {
+  font-family: "Roboto", sans-serif;
+  color: #000000;
+  background-color: #ffffff;
+}
 
-/*# sourceMappingURL=style.css.map */
+/* WORDPRESS BLOCKS */
+.wp-block-button {
+  background-color: #9dd1de;
+  color: #ffffff;
+  border: none;
+  padding: 1.5rem 0.75rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.wp-block-button.button-primary {
+  background-color: #9dd1de;
+  color: #ffffff;
+}
+.wp-block-button.button-secondary {
+  background-color: #ffffff;
+  color: #3a3a3a;
+  border: #3a3a3a solid 2px;
+}
+.wp-block-button.button-transparent {
+  background-color: transparent;
+  color: #3a3a3a;
+}
+.wp-block-button.button-plain {
+  background-color: transparent;
+  padding: none;
+  border-radius: 0;
+  color: #3a3a3a;
+}
+.wp-block-button.button-destructive {
+  background-color: #fa1717;
+  color: #ffffff;
+}
+.wp-block-button.button-destructive-secondary {
+  background-color: #ffffff;
+  color: #fa1717;
+  border: #fa1717 solid 2px;
+}/*# sourceMappingURL=style.css.map */
