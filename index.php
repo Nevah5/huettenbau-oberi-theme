@@ -8,22 +8,22 @@
       the_post();
   ?>
 
-  <article <?php post_class(); ?>>
+      <article <?php post_class(); ?>>
 
-    <header class="entry-header">
-      <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-      <?php
+        <header class="entry-header">
+          <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+          <?php
           wp_nav_menu(array(
             'theme_location' => 'menu-1',
           ));
           ?>
-    </header><!-- .entry-header -->
+        </header><!-- .entry-header -->
 
-    <div class="entry-content">
-      <?php the_content(esc_html__('Continue reading &rarr;', 'my-custom-theme')); ?>
-    </div><!-- .entry-content -->
+        <div class="entry-content">
+          <?php the_content(esc_html__('Continue reading &rarr;', 'my-custom-theme')); ?>
+        </div><!-- .entry-content -->
 
-  </article><!-- #post-## -->
+      </article><!-- #post-## -->
 
   <?php
       // If comments are open or we have at least one comment, load up the comment template.
@@ -32,19 +32,7 @@
       endif;
     endwhile;
   else :
-    ?>
-  <article class="no-results">
-
-    <header class="entry-header">
-      <h1 class="page-title"><?php esc_html_e('Nothing Found', 'my-custom-theme'); ?></h1>
-    </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      <p><?php esc_html_e('It looks like nothing was found at this location.', 'my-custom-theme'); ?></p>
-    </div><!-- .entry-content -->
-
-  </article><!-- .no-results -->
-  <?php
+    get_template_part('content-none');
   endif;
   ?>
 </div><!-- .site-content -->
