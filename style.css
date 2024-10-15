@@ -41,7 +41,7 @@ body {
 }
 .wp-block-button.style-plain > a {
   background-color: transparent;
-  padding: none !important;
+  padding: 0;
   border-radius: 0;
   color: #3a3a3a;
 }

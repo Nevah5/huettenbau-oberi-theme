@@ -65,7 +65,7 @@ body {
 
   &.style-plain > a {
     background-color: transparent;
-    padding: none !important;
+    padding: 0;
     border-radius: 0;
     color: $color-secondary;
   }
