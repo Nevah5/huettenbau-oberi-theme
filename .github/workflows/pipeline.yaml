@@ -36,12 +36,15 @@ jobs:
           echo Release version: $latest
           echo Develop version: $develop
       - name: Set new version
+        if: github.ref_name == 'main' || github.ref_name == 'develop'
         id: set_version
         run: |
           if ! [[ '${{ github.ref_name }}' == 'main' ]] && ! [[ '${{ github.ref_name }}' == 'develop' ]]; then
+            echo "Not on main or develop"
             hash=$(echo ${{ github.sha }} | cut -c1-7)
             version=$(echo "${{ github.ref_name }}-$hash" | sed 's/\//-/g')
             echo "VERSION=$version" >> $GITHUB_OUTPUT
+            echo "Using $version as the version"
           else
             latest=${{ steps.get_version.outputs.LATEST }}
             latest_minor=$(echo $latest | awk -F. '{print $2}')
@@ -66,6 +69,7 @@ jobs:
             fi
 
             echo "VERSION=$version" >> $GITHUB_OUTPUT
+            echo "Using $version as the version"
           fi
       - name: Checkout develop
         if: github.ref_name == 'develop'
@@ -87,7 +91,7 @@ jobs:
         Author: Noah Geeler
         Author URI: https://noah.geeler.net
         Description: Hüttenbau Oberi Theme
-        Version: ${{ needs.versioning.outputs.VERSION }}
+        Version: ${{ needs.versioning.outputs.VERSION || github.ref_name + '-' + github.sha.slice(0, 7).replace(/\//g, '-') }}
         License: GNU General Public License v3
         License URI: <https://www.gnu.org/licenses/gpl-3.0.html>
         Text Domain: huettenbau-oberi-theme
