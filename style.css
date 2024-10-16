@@ -18,11 +18,11 @@ body {
 
 /* WORDPRESS BLOCKS */
 .site-header {
-  width: 100vw;
+  width: calc(100vw - 3rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 1rem;
+  padding: 1rem 1.5rem;
 }
 .site-header p.site-title img {
   width: 279px;

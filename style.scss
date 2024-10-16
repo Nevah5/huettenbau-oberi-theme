@@ -37,11 +37,11 @@ body {
 /* WORDPRESS BLOCKS */
 
 .site-header {
-  width: 100vw;
+  width: calc(100vw - 2 * $size-xl);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $size-lg $size-md;
+  padding: $size-md $size-xl;
 
   p.site-title img {
     width: 279px;
