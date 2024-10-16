@@ -36,7 +36,6 @@ jobs:
           echo Release version: $latest
           echo Develop version: $develop
       - name: Set new version
-        if: github.ref_name == 'main' || github.ref_name == 'develop'
         id: set_version
         run: |
           if ! [[ '${{ github.ref_name }}' == 'main' ]] && ! [[ '${{ github.ref_name }}' == 'develop' ]]; then
@@ -91,7 +90,7 @@ jobs:
         Author: Noah Geeler
         Author URI: https://noah.geeler.net
         Description: Hüttenbau Oberi Theme
-        Version: ${{ needs.versioning.outputs.VERSION || github.ref_name + '-' + github.sha.slice(0, 7).replace(/\//g, '-') }}
+        Version: ${{ needs.versioning.outputs.VERSION }}
         License: GNU General Public License v3
         License URI: <https://www.gnu.org/licenses/gpl-3.0.html>
         Text Domain: huettenbau-oberi-theme
