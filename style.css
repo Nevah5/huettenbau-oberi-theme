@@ -25,7 +25,8 @@ body {
   padding: 1.25rem 1rem;
 }
 .site-header p.site-title img {
-  width: 280px;
+  width: 279px;
+  aspect-ratio: 279/35;
 }
 .site-header > div {
   display: flex;

@@ -44,7 +44,8 @@ body {
   padding: $size-lg $size-md;
 
   p.site-title img {
-    width: 280px;
+    width: 279px;
+    aspect-ratio: 279 / 35;
   }
 
   & > div {
