@@ -17,6 +17,28 @@ body {
 }
 
 /* WORDPRESS BLOCKS */
+.site-header {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1rem;
+}
+.site-header > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.site-header > div ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.site-header > div ul li {
+  margin-right: 1rem;
+}
+
 .wp-block-button a {
   background-color: #9dd1de;
   color: #ffffff;
