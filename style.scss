@@ -42,7 +42,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: $size-md $size-xl;
-  background-color: opacify($color-background, 0.5);
+  background-color: rgba($color-background, 0.5);
 
   p.site-title img {
     width: 279px;
