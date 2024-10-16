@@ -43,6 +43,10 @@ body {
   align-items: center;
   padding: $size-lg $size-md;
 
+  p.site-title img {
+    width: 280px;
+  }
+
   & > div {
     display: flex;
     flex-direction: row;
