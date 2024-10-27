@@ -2,9 +2,6 @@ name: Pipeline
 
 on:
   push:
-    branches:
-      - main
-      - develop
 
 jobs:
   versioning:
@@ -42,9 +39,11 @@ jobs:
         id: set_version
         run: |
           if ! [[ '${{ github.ref_name }}' == 'main' ]] && ! [[ '${{ github.ref_name }}' == 'develop' ]]; then
+            echo "Not on main or develop"
             hash=$(echo ${{ github.sha }} | cut -c1-7)
             version=$(echo "${{ github.ref_name }}-$hash" | sed 's/\//-/g')
             echo "VERSION=$version" >> $GITHUB_OUTPUT
+            echo "Using $version as the version"
           else
             latest=${{ steps.get_version.outputs.LATEST }}
             latest_minor=$(echo $latest | awk -F. '{print $2}')
@@ -69,6 +68,7 @@ jobs:
             fi
 
             echo "VERSION=$version" >> $GITHUB_OUTPUT
+            echo "Using $version as the version"
           fi
       - name: Checkout develop
         if: github.ref_name == 'develop'
@@ -111,7 +111,7 @@ jobs:
           npm install -g sass
       - name: Compile SCSS
         run: |
-          sass . --no-source-map
+          sass style.scss --no-source-map -q > style.css
       - name: Add header to style.css
         run: |
           echo '${{ env.FILE_HEADER }}' | cat - style.css > temp && mv temp style.css
