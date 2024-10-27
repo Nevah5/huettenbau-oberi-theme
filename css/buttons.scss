@@ -1,5 +1,6 @@
 .wp-block-button {
   a {
+    display: inline-block;
     background-color: $color-primary;
     color: $color-background;
     border: none;
@@ -7,22 +8,71 @@
     border-radius: $button-border-radius;
     text-transform: uppercase;
     font-weight: bold;
+
+    &:active {
+      transform: scale(0.98);
+    }
   }
 
-  &.style-primary > a {
-    background-color: $color-primary;
-    color: $color-background;
+  &.style-primary {
+    &.disabled {
+      cursor: not-allowed;
+      & > a {
+        background-color: lighten($color-primary, 15%);
+        pointer-events: none;
+      }
+    }
+    & > a {
+      background-color: $color-primary;
+      color: $color-background;
+
+      &:hover {
+        background-color: $color-primary-light;
+      }
+      &:active {
+        background-color: $color-primary-dark;
+      }
+      &:focus {
+        outline: solid calc($size-xxs / 2) $color-secondary;
+      }
+    }
   }
 
   &.style-secondary > a {
     background-color: $color-background;
     color: $color-secondary;
     border: $color-secondary solid $button-border-width;
+
+    &:hover {
+      background-color: $color-secondary-light;
+    }
+    &:active {
+      background-color: $color-secondary-dark;
+    }
+    &:disabled {
+      background-color: $color-secondary-dark;
+    }
+    &:focus {
+      outline: solid calc($size-xxs / 2) $color-secondary;
+    }
   }
 
   &.style-transparent > a {
     background-color: transparent;
     color: $color-secondary;
+
+    &:hover {
+      background-color: $color-secondary-light;
+    }
+    &:active {
+      background-color: $color-secondary-dark;
+    }
+    &:disabled {
+      background-color: $color-secondary-dark;
+    }
+    &:focus {
+      outline: solid calc($size-xxs / 2) $color-secondary;
+    }
   }
 
   &.style-plain > a {
