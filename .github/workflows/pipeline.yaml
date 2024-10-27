@@ -111,7 +111,7 @@ jobs:
           npm install -g sass
       - name: Compile SCSS
         run: |
-          sass . --no-source-map
+          sass style.scss --no-source-map -q > style.css
       - name: Add header to style.css
         run: |
           echo '${{ env.FILE_HEADER }}' | cat - style.css > temp && mv temp style.css
