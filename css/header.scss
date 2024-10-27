@@ -1,13 +1,16 @@
 .site-header {
   width: calc(100vw - 2 * $size-xl);
+  position: sticky;
+  top: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: $size-md $size-xl;
   background-color: rgba($color-background, 0.5);
+  backdrop-filter: blur($size-xs);
 
   p.site-title {
-    width: 279px;
+    max-width: 280px;
 
     img {
       width: 100%;
