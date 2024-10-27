@@ -1,0 +1,40 @@
+/* COLORS */
+$color-primary: #9dd1de;
+$color-secondary: #3a3a3a;
+$color-accent: #fa1717;
+$color-background: #ffffff;
+$color-text: #000000;
+
+/* SIZES */
+$size-xxs: 0.25rem; // 4px
+$size-xs: 0.5rem; // 8px
+$size-sm: 0.75rem; // 12px
+$size-md: 1rem; // 16px
+$size-lg: 1.25rem; // 20px
+$size-xl: 1.5rem; // 24px
+$size-xxl: 2.5rem; // 40px
+
+$button-border-radius: 5px;
+$button-border-width: 2px;
+
+/* BASIC STYLES */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: $size-md;
+  line-height: 1.5;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: $color-text;
+  background-color: $color-background;
+}
+
+/* IMPORTS */
+
+@import "./css/header.scss";
+@import "./css/buttons.scss";

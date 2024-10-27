@@ -1,5 +1,14 @@
-<?php get_template_part('header'); ?>
+<?php
+get_header(); ?>
 <div class="site-content">
+  <header class="page-header">
+    <h1 class="page-title">
+      <?php
+      /* translators: %s: the search query */
+      printf(esc_html__('Search Results for: %s', 'scaffold'), '<span>' . get_search_query() . '</span>');
+      ?>
+    </h1>
+  </header><!-- .page-header -->
   <?php
   if (have_posts()) :
 
@@ -10,13 +19,10 @@
 
   <article <?php post_class(); ?>>
 
+    <?php the_post_thumbnail('my-custom-image-size'); ?>
+
     <header class="entry-header">
-      <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-      <?php
-          wp_nav_menu(array(
-            'theme_location' => 'menu-1',
-          ));
-          ?>
+      <?php the_title('<h2 class="entry-title">', '</h2>'); ?>
     </header><!-- .entry-header -->
 
     <div class="entry-content">
@@ -30,10 +36,16 @@
       if (comments_open() || get_comments_number()) :
         comments_template();
       endif;
+
     endwhile;
+
+    the_posts_navigation();
+
   else :
     get_template_part('content-none');
   endif;
   ?>
 </div><!-- .site-content -->
-<?php get_template_part('footer') ?>
+<?php
+get_sidebar();
+get_footer();
