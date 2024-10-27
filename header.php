@@ -11,15 +11,17 @@
 <body>
   <header class="site-header">
     <p class="site-title">
-      <a href="<?php echo esc_url(home_url('/')); ?>">
-        <?php
+      <?php
         if (function_exists('the_custom_logo')) {
           the_custom_logo();
         } else {
-          bloginfo('name');
+          ?>
+      <a href="<?php echo esc_url(home_url('/')); ?>">
+        <?= bloginfo('name'); ?>
+      </a>
+      <?php
         }
         ?>
-      </a>
     </p>
     <?php
     wp_nav_menu(array(

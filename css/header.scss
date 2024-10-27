@@ -6,15 +6,21 @@
   padding: $size-md $size-xl;
   background-color: rgba($color-background, 0.5);
 
-  p.site-title img {
+  p.site-title {
     width: 279px;
-    height: 35px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 
   & > div {
     display: flex;
+    width: 70%;
     flex-direction: row;
     align-items: center;
+    justify-content: flex-end;
 
     ul {
       display: flex;
@@ -25,6 +31,11 @@
       li {
         margin-right: $size-md;
         color: $color-secondary;
+        font-weight: bold;
+
+        &:hover {
+          color: $color-accent;
+        }
 
         a {
           color: $color-secondary;
