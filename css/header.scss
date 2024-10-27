@@ -1,0 +1,40 @@
+.site-header {
+  width: calc(100vw - 2 * $size-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $size-md $size-xl;
+  background-color: rgba($color-background, 0.5);
+
+  p.site-title img {
+    width: 279px;
+    height: 35px;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-right: $size-md;
+        color: $color-secondary;
+
+        a {
+          color: $color-secondary;
+          text-decoration: none;
+
+          &:hover {
+            color: $color-accent;
+          }
+        }
+      }
+    }
+  }
+}
