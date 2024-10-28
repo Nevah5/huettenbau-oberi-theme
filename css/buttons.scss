@@ -14,27 +14,15 @@
     }
   }
 
-  &.style-primary {
-    &.disabled {
-      cursor: not-allowed;
-      & > a {
-        background-color: lighten($color-primary, 15%);
-        pointer-events: none;
-      }
-    }
-    & > a {
-      background-color: $color-primary;
-      color: $color-background;
+  &.style-primary > a {
+    background-color: $color-primary;
+    color: $color-background;
 
-      &:hover {
-        background-color: $color-primary-light;
-      }
-      &:active {
-        background-color: $color-primary-dark;
-      }
-      &:focus {
-        outline: solid calc($size-xxs / 2) $color-secondary;
-      }
+    &:hover {
+      background-color: $color-primary-light;
+    }
+    &:active {
+      background-color: $color-primary-dark;
     }
   }
 
@@ -45,15 +33,10 @@
 
     &:hover {
       background-color: $color-secondary-light;
+      color: $color-background;
     }
     &:active {
       background-color: $color-secondary-dark;
-    }
-    &:disabled {
-      background-color: $color-secondary-dark;
-    }
-    &:focus {
-      outline: solid calc($size-xxs / 2) $color-secondary;
     }
   }
 
@@ -63,15 +46,10 @@
 
     &:hover {
       background-color: $color-secondary-light;
+      color: $color-background;
     }
     &:active {
       background-color: $color-secondary-dark;
-    }
-    &:disabled {
-      background-color: $color-secondary-dark;
-    }
-    &:focus {
-      outline: solid calc($size-xxs / 2) $color-secondary;
     }
   }
 
@@ -80,16 +58,39 @@
     padding: 0;
     border-radius: 0;
     color: $color-secondary;
+
+    &:hover {
+      border-bottom: solid calc($size-xxs / 2) $color-secondary;
+      margin-bottom: calc($size-xxs / 2 * -1);
+    }
+    &:active {
+      transform: none !important;
+    }
   }
 
   &.style-destructive > a {
     background-color: $color-accent;
     color: $color-background;
+
+    &:hover {
+      background-color: $color-accent-light;
+    }
+    &:active {
+      background-color: $color-accent-dark;
+    }
   }
 
   &.style-destructive-secondary > a {
     background-color: $color-background;
     color: $color-accent;
     border: $color-accent solid $button-border-width;
+
+    &:hover {
+      background-color: $color-accent-light;
+      color: $color-background;
+    }
+    &:active {
+      background-color: $color-accent-dark;
+    }
   }
 }
