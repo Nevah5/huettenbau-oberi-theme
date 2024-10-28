@@ -123,6 +123,7 @@ jobs:
           mkdir build
           cp *.css build/
           cp *.php build/
+          cp screenshot.png build/
           cp assets/ build/ -r
           cp LICENSE build/
       - name: Upload artifact
