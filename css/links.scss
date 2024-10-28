@@ -1,0 +1,58 @@
+@mixin link-icon {
+  position: relative;
+  content: "";
+  margin-right: $size-xxs;
+  display: inline-block;
+  height: 1em;
+  aspect-ratio: 1 / 1;
+}
+
+a {
+  white-space: nowrap;
+  position: relative;
+  color: $color-text;
+  text-decoration: none;
+  border-bottom: solid 1px $color-text;
+
+  &:any-link {
+    color: $color-text;
+  }
+  &:hover {
+    color: $color-accent;
+    border-bottom-color: $color-accent;
+  }
+
+  &.link-internal,
+  &.link-internal-before,
+  &.link-external,
+  &.link-external-before,
+  &.link-download,
+  &.link-download-before {
+    &::before {
+      @include link-icon;
+    }
+  }
+  &.link-internal-after,
+  &.link-external-after,
+  &.link-download-after {
+    &::after {
+      @include link-icon;
+    }
+  }
+
+  &.link-internal,
+  &.link-internal-before {
+  }
+  &.link-internal-after {
+  }
+  &.link-external,
+  &.link-external-before {
+  }
+  &.link-external-after {
+  }
+  &.link-download,
+  &.link-download-before {
+  }
+  &.link-download-after {
+  }
+}
