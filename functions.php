@@ -10,13 +10,25 @@ function huettenbau_oberi_theme_enqueue()
   wp_enqueue_style('huettenbau-oberi-theme', get_stylesheet_uri());
 
   // Set link icons background images
-  $internal_link_icon = esc_url(get_parent_theme_file_uri('assets/icons/download-icon.svg'));
+  $internal_link_icon = esc_url(get_parent_theme_file_uri('assets/icons/internal-icon.svg'));
+  $external_link_icon = esc_url(get_parent_theme_file_uri('assets/icons/external-icon.svg'));
+  $download_link_icon = esc_url(get_parent_theme_file_uri('assets/icons/download-icon.svg'));
 
   $link_icons_css = "
     p a.link-internal::before,
     p a.link-internal-before::before,
     p a.link-internal-after::after {
-        background-image: url('{$internal_link_icon}');
+      background-image: url('{$internal_link_icon}');
+    }
+    p a.link-external::before,
+    p a.link-external-before::before,
+    p a.link-external-after::after {
+      background-image: url('{$external_link_icon}');
+    }
+    p a.link-download::before,
+    p a.link-download-before::before,
+    p a.link-download-after::after {
+      background-image: url('{$download_link_icon}');
     }
   ";
   wp_add_inline_style('huettenbau-oberi-theme', $link_icons_css);

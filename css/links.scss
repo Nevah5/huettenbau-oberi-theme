@@ -1,7 +1,6 @@
 @mixin link-icon {
   position: relative;
   content: "";
-  margin-right: $size-xxs;
   display: inline-block;
   height: 1em;
   aspect-ratio: 1 / 1;
@@ -30,6 +29,7 @@ p a {
   &.link-download-before {
     &::before {
       @include link-icon;
+      margin-right: $size-xxs;
     }
   }
   &.link-internal-after,
@@ -37,22 +37,7 @@ p a {
   &.link-download-after {
     &::after {
       @include link-icon;
+      margin-left: $size-xxs;
     }
-  }
-
-  &.link-internal,
-  &.link-internal-before {
-  }
-  &.link-internal-after {
-  }
-  &.link-external,
-  &.link-external-before {
-  }
-  &.link-external-after {
-  }
-  &.link-download,
-  &.link-download-before {
-  }
-  &.link-download-after {
   }
 }
