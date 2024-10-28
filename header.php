@@ -10,19 +10,21 @@
 
 <body>
   <header class="site-header">
-    <p class="site-title">
-      <?php
-      if (function_exists('the_custom_logo')) {
-        the_custom_logo();
-      } else {
-      ?>
-        <a href="<?php echo esc_url(home_url('/')); ?>">
-          <?= bloginfo('name'); ?>
-        </a>
-      <?php
-      }
-      ?>
-    </p>
+    <?php
+    if (function_exists('the_custom_logo')) {
+    ?>
+    <div class="site-logo">
+      <?= the_custom_logo() ?>
+    </div>
+    <?php
+    } else {
+    ?>
+    <a href="<?php echo esc_url(home_url('/')); ?>" class="site-title">
+      <?= bloginfo('name'); ?>
+    </a>
+    <?php
+    }
+    ?>
     <div class="navigation-menu">
       <input type="checkbox" name="nav-toggle" id="nav-toggle">
       <label class="nav-toggle-label" for="nav-toggle">

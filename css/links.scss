@@ -1,0 +1,49 @@
+@mixin link-icon {
+  position: relative;
+  content: "";
+  display: inline-block;
+  height: 0.8em;
+  aspect-ratio: 1 / 1;
+}
+
+p a {
+  white-space: nowrap;
+  position: relative;
+  color: $color-text;
+  text-decoration: none;
+  border-bottom: solid 1px $color-text;
+
+  &:any-link {
+    color: $color-text;
+  }
+  &:hover {
+    color: $color-accent;
+    border-bottom-color: $color-accent;
+  }
+
+  &.link-internal,
+  &.link-internal-before,
+  &.link-external,
+  &.link-external-before,
+  &.link-download,
+  &.link-download-before {
+    &::before {
+      @include link-icon;
+      margin-right: $size-xxs;
+    }
+    &:hover {
+      @include background-filter-accent();
+    }
+  }
+  &.link-internal-after,
+  &.link-external-after,
+  &.link-download-after {
+    &::after {
+      @include link-icon;
+      margin-left: $size-xxs;
+    }
+    &:hover {
+      @include background-filter-accent();
+    }
+  }
+}
