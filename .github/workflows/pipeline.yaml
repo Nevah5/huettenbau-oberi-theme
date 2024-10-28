@@ -115,6 +115,9 @@ jobs:
       - name: Add header to style.css
         run: |
           echo '${{ env.FILE_HEADER }}' | cat - style.css > temp && mv temp style.css
+      - name: Delete unwanted files
+        run: |
+          find . -type f -name "*.afdesign" -exec rm -f {} \;
       - name: Prepare ZIP
         run: |
           mkdir build
