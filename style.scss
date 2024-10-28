@@ -17,6 +17,20 @@ $size-xxl: 2.5rem; // 40px
 $button-border-radius: 5px;
 $button-border-width: 2px;
 
+/* BACKGROUND COLOR FILTERS */
+@mixin background-filter-primary() {
+  filter: brightness(0) saturate(100%) invert(80%) sepia(13%) saturate(640%) hue-rotate(145deg) brightness(98%)
+    contrast(91%);
+}
+@mixin background-filter-secondary() {
+  filter: brightness(0) saturate(100%) invert(6%) sepia(0%) saturate(1741%) hue-rotate(140deg) brightness(125%)
+    contrast(65%);
+}
+@mixin background-filter-accent() {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(83%) saturate(6529%) hue-rotate(355deg) brightness(98%)
+    contrast(100%);
+}
+
 /* BASIC STYLES */
 
 html,

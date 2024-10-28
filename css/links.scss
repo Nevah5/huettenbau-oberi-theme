@@ -31,6 +31,9 @@ p a {
       @include link-icon;
       margin-right: $size-xxs;
     }
+    &:hover {
+      @include background-filter-accent();
+    }
   }
   &.link-internal-after,
   &.link-external-after,
@@ -38,6 +41,9 @@ p a {
     &::after {
       @include link-icon;
       margin-left: $size-xxs;
+    }
+    &:hover {
+      @include background-filter-accent();
     }
   }
 }
