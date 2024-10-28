@@ -19,7 +19,7 @@ function huettenbau_oberi_theme_enqueue()
         background-image: url('{$internal_link_icon}');
     }
   ";
-  wp_add_inline_style('huettenbau-oberi-link-icons', $link_icons_css);
+  wp_add_inline_style('huettenbau-oberi-theme', $link_icons_css);
 }
 
 add_action('wp_enqueue_scripts', 'huettenbau_oberi_theme_enqueue');
