@@ -62,7 +62,7 @@
         }
       }
     }
-    @media only screen and (max-width: 750px) {
+    @media only screen and (max-width: 991px) {
       $list-item-height: calc(2 * $size-xl);
       .nav-toggle-label {
         width: 30px;
