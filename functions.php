@@ -6,6 +6,7 @@ register_nav_menus(
     'menu-3' => __('Footer - Informationen', 'huettenbau-oberi-theme'),
     'menu-4' => __('Footer - Diverses', 'huettenbau-oberi-theme'),
     'menu-4' => __('Footer - Legal', 'huettenbau-oberi-theme'),
+    'menu-5' => __('Footer - Administration', 'huettenbau-oberi-theme'),
   )
 );
 

@@ -9,19 +9,20 @@
 </head>
 
 <body>
+  <span id="top"></span>
   <header class="site-header">
     <?php
     if (function_exists('the_custom_logo')) {
     ?>
-    <div class="site-logo">
-      <?= the_custom_logo() ?>
-    </div>
+      <div class="site-logo">
+        <?= the_custom_logo() ?>
+      </div>
     <?php
     } else {
     ?>
-    <a href="<?php echo esc_url(home_url('/')); ?>" class="site-title">
-      <?= bloginfo('name'); ?>
-    </a>
+      <a href="<?php echo esc_url(home_url('/')); ?>" class="site-title">
+        <?= bloginfo('name'); ?>
+      </a>
     <?php
     }
     ?>

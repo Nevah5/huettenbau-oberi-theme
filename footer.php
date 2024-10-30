@@ -48,6 +48,20 @@
     </div>
   </div>
   <div class="wrapper-right">
+    <div class="navigation">
+      <h3>Administration</h3>
+      <?php
+      wp_nav_menu(array(
+        'theme_location' => 'menu-6',
+      ));
+      ?>
+    </div>
+    <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+      <div class="wp-block-button is-style-fill  style-destructive"><a class="wp-block-button__link wp-element-button"
+          href="#">ANMELDEN</a></div>
+      <div class="wp-block-button is-style-fill  style-plain"><a class="wp-block-button__link wp-element-button"
+          href="#top">NACH OBEN</a></div>
+    </div>
     <div class="legal">
       <p>Copyright © 2024 Hüttenbau Oberi<br>
         | Alle Rechte vorbehalten</p>
@@ -59,6 +73,7 @@
     </div>
   </div>
 </footer>
+<div class="accent-bar"><span>&copy; <?php echo date("Y"); ?> - Hüttenbau Oberi</span></div>
 </body>
 
 </html>
