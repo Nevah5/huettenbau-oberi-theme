@@ -1,7 +1,11 @@
 <?php
 register_nav_menus(
   array(
-    'menu-1' => __('Navigation Bar', 'huettenbau-oberi-theme')
+    'menu-1' => __('Navigation Bar', 'huettenbau-oberi-theme'),
+    'menu-2' => __('Footer - Navigation', 'huettenbau-oberi-theme'),
+    'menu-3' => __('Footer - Informationen', 'huettenbau-oberi-theme'),
+    'menu-4' => __('Footer - Diverses', 'huettenbau-oberi-theme'),
+    'menu-4' => __('Footer - Legal', 'huettenbau-oberi-theme'),
   )
 );
 
