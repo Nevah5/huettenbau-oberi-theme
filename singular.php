@@ -1,5 +1,5 @@
 <?php
-
+// for Posts and Pages
 /**
  * The template for displaying single posts and pages.
  *
@@ -8,36 +8,39 @@
  */
 
 get_header(); ?>
-<div class="site-content">
-  <?php
-  while (have_posts()) :
+<div class="content-wrapper">
 
-    the_post();
-  ?>
+  <div class="site-content">
+    <?php
+    while (have_posts()) :
 
-  <article <?php post_class(); ?>>
+      the_post();
+    ?>
 
-    <?php the_post_thumbnail('my-custom-image-size'); ?>
+    <article <?php post_class(); ?>>
 
-    <header class="entry-header">
-      <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-    </header><!-- .entry-header -->
+      <?php the_post_thumbnail('my-custom-image-size'); ?>
 
-    <div class="entry-content">
-      <?php the_content(); ?>
-    </div><!-- .entry-content -->
+      <header class="entry-header">
+        <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+      </header><!-- .entry-header -->
 
-  </article><!-- #post-## -->
+      <div class="entry-content">
+        <?php the_content(); ?>
+      </div><!-- .entry-content -->
 
-  <?php
-    // If comments are open or we have at least one comment, load up the comment template.
-    if (comments_open() || get_comments_number()) :
-      comments_template();
-    endif;
+    </article><!-- #post-## -->
 
-  endwhile;
-  ?>
-</div><!-- .site-content -->
+    <?php
+      // If comments are open or we have at least one comment, load up the comment template.
+      if (comments_open() || get_comments_number()) :
+        comments_template();
+      endif;
+
+    endwhile;
+    ?>
+  </div><!-- .site-content -->
+  <?php get_sidebar(); ?>
+</div>
 <?php
-get_sidebar();
 get_footer();
