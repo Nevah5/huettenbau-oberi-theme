@@ -1,28 +1,32 @@
+<h2 class="farewell">Wie freuen uns auf dich!</h2>
 <footer class="site-footer">
   <div class="wrapper-left">
-    <div class="navigation">
-      <h3>Navigation</h3>
-      <?php
-      wp_nav_menu(array(
-        'theme_location' => 'menu-2',
-      ));
-      ?>
-    </div>
-    <div class="navigation">
-      <h3>Informationen</h3>
-      <?php
-      wp_nav_menu(array(
-        'theme_location' => 'menu-3',
-      ));
-      ?>
-    </div>
-    <div class="navigation">
-      <h3>Diverses</h3>
-      <?php
-      wp_nav_menu(array(
-        'theme_location' => 'menu-4',
-      ));
-      ?>
+    <div class="navigation-wrapper">
+
+      <div class="navigation">
+        <h3>Navigation</h3>
+        <?php
+        wp_nav_menu(array(
+          'theme_location' => 'menu-2',
+        ));
+        ?>
+      </div>
+      <div class="navigation">
+        <h3>Informationen</h3>
+        <?php
+        wp_nav_menu(array(
+          'theme_location' => 'menu-3',
+        ));
+        ?>
+      </div>
+      <div class="navigation">
+        <h3>Diverses</h3>
+        <?php
+        wp_nav_menu(array(
+          'theme_location' => 'menu-4',
+        ));
+        ?>
+      </div>
     </div>
     <div class="logo">
       <?php
