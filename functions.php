@@ -5,8 +5,8 @@ register_nav_menus(
     'menu-2' => __('Footer - Navigation', 'huettenbau-oberi-theme'),
     'menu-3' => __('Footer - Informationen', 'huettenbau-oberi-theme'),
     'menu-4' => __('Footer - Diverses', 'huettenbau-oberi-theme'),
-    'menu-4' => __('Footer - Legal', 'huettenbau-oberi-theme'),
-    'menu-5' => __('Footer - Administration', 'huettenbau-oberi-theme'),
+    'menu-5' => __('Footer - Legal', 'huettenbau-oberi-theme'),
+    'menu-6' => __('Footer - Administration', 'huettenbau-oberi-theme'),
   )
 );
 
