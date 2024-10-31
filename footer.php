@@ -69,8 +69,6 @@
     }
     ?>
     <div class="legal">
-      <p>Copyright © 2024 Hüttenbau Oberi<br>
-        | Alle Rechte vorbehalten</p>
       <?php
       wp_nav_menu(array(
         'theme_location' => 'menu-footer-legal',
