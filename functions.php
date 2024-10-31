@@ -15,13 +15,17 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
 {
   // Add a section
   $wp_customize->add_section('huettenbau_oberi_theme_text_section', array(
-    'title' => __('Custom Text', 'huettenbau_oberi_theme'),
+    'title' => __('Main Page', 'huettenbau_oberi_theme'),
     'priority' => 30,
   ));
 
   // Add a setting
   $wp_customize->add_setting('huettenbau_oberi_theme_custom_text', array(
-    'default' => __('Default Text', 'huettenbau_oberi_theme'),
+    'text-hero-span' => __('Hero (pre)', 'huettenbau_oberi_theme'),
+    'sanitize_callback' => 'sanitize_text_field',
+  ));
+  $wp_customize->add_setting('huettenbau_oberi_theme_custom_text', array(
+    'text-hero-title' => __('Hero Title', 'huettenbau_oberi_theme'),
     'sanitize_callback' => 'sanitize_text_field',
   ));
 
