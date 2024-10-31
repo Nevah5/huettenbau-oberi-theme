@@ -14,38 +14,38 @@ register_nav_menus(
 function huettenbau_oberi_theme_customize_register($wp_customize)
 {
   // Add a section
-  $wp_customize->add_section('huettenbau_oberi_theme_text_section', array(
-    'title' => __('Main Page', 'huettenbau_oberi_theme'),
+  $wp_customize->add_section('huettenbau-oberi-page-section', array(
+    'title' => __('Main Page', 'huettenbau-oberi-theme'),
     'priority' => 30,
   ));
 
-  // SETTINGS
-  $wp_customize->add_setting('huettenbau_oberi_theme_custom_text', array(
-    'huettenbau-oberi-text-hero-span' => __('Wilkommen beim', 'huettenbau_oberi_theme'),
+  // Add a setting
+  $wp_customize->add_setting('huettenbau-oberi-page-hero-span', array(
+    'default' => __('Wilkommen beim', 'huettenbau-oberi-theme'),
     'sanitize_callback' => 'sanitize_text_field',
   ));
-  $wp_customize->add_setting('huettenbau_oberi_theme_custom_text', array(
-    'huettenbau-oberi-text-hero-title' => __('Hüttenbau Oberi', 'huettenbau_oberi_theme'),
+  $wp_customize->add_setting('huettenbau-oberi-page-hero-title', array(
+    'default' => __('Hüttenbau Oberi', 'huettenbau-oberi-theme'),
     'sanitize_callback' => 'sanitize_text_field',
   ));
 
-  // CONTROLS
-  $wp_customize->add_control('huettenbau_oberi_theme_custom_text_control', array(
-    'label' => __('Hero (pre)', 'huettenbau_oberi_theme'),
-    'section' => 'huettenbau_oberi_theme_text_section',
-    'settings' => 'huettenbau-oberi-text-hero-span',
+  // Add a control
+  $wp_customize->add_control('huettenbau-oberi-page-hero-span-control', array(
+    'label' => __('Hero (pre)', 'huettenbau-oberi-theme'),
+    'section' => 'huettenbau-oberi-page-section',
+    'settings' => 'huettenbau-oberi-page-hero-span',
     'type' => 'text',
   ));
-  $wp_customize->add_control('huettenbau_oberi_theme_custom_text_control', array(
-    'label' => __('Hero Title', 'huettenbau_oberi_theme'),
-    'section' => 'huettenbau_oberi_theme_text_section',
-    'settings' => 'huettenbau-oberi-text-hero-title',
+  $wp_customize->add_control('huettenbau-oberi-page-hero-title-control', array(
+    'label' => __('Hero Title', 'huettenbau-oberi-theme'),
+    'section' => 'huettenbau-oberi-page-section',
+    'settings' => 'huettenbau-oberi-page-hero-title',
     'type' => 'text',
   ));
 }
 add_action('customize_register', 'huettenbau_oberi_theme_customize_register');
 
-function huettenbau_oberi_theme_enqueue()
+function huettenbau_oberi_theme_customize_register_enqueue()
 {
   wp_enqueue_style('huettenbau-oberi-theme', get_stylesheet_uri());
 
@@ -74,6 +74,6 @@ function huettenbau_oberi_theme_enqueue()
   wp_add_inline_style('huettenbau-oberi-theme', $link_icons_css);
 }
 
-add_action('wp_enqueue_scripts', 'huettenbau_oberi_theme_enqueue');
+add_action('wp_enqueue_scripts', 'huettenbau_oberi_theme_customize_register_enqueue');
 
 add_theme_support('custom-logo');
