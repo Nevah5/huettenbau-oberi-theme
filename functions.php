@@ -11,6 +11,30 @@ register_nav_menus(
   )
 );
 
+function huettenbau_oberi_theme_customize_register($wp_customize)
+{
+  // Add a section
+  $wp_customize->add_section('huettenbau_oberi_theme_text_section', array(
+    'title' => __('Custom Text', 'huettenbau_oberi_theme'),
+    'priority' => 30,
+  ));
+
+  // Add a setting
+  $wp_customize->add_setting('huettenbau_oberi_theme_custom_text', array(
+    'default' => __('Default Text', 'huettenbau_oberi_theme'),
+    'sanitize_callback' => 'sanitize_text_field',
+  ));
+
+  // Add a control
+  $wp_customize->add_control('huettenbau_oberi_theme_custom_text_control', array(
+    'label' => __('Custom Text', 'huettenbau_oberi_theme'),
+    'section' => 'huettenbau_oberi_theme_text_section',
+    'settings' => 'huettenbau_oberi_theme_custom_text',
+    'type' => 'text',
+  ));
+}
+add_action('customize_register', 'huettenbau_oberi_theme_customize_register');
+
 function huettenbau_oberi_theme_enqueue()
 {
   wp_enqueue_style('huettenbau-oberi-theme', get_stylesheet_uri());
