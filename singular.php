@@ -17,19 +17,19 @@ get_header(); ?>
       the_post();
     ?>
 
-    <article <?php post_class(); ?>>
+      <article <?php post_class(); ?>>
 
-      <?php the_post_thumbnail('my-custom-image-size'); ?>
+        <?php the_post_thumbnail('my-custom-image-size'); ?>
 
-      <header class="entry-header">
-        <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-      </header><!-- .entry-header -->
+        <header class="entry-header">
+          <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+        </header><!-- .entry-header -->
 
-      <div class="entry-content">
-        <?php the_content(); ?>
-      </div><!-- .entry-content -->
+        <div class="entry-content">
+          <?php the_content(); ?>
+        </div><!-- .entry-content -->
 
-    </article><!-- #post-## -->
+      </article><!-- #post-## -->
 
     <?php
       // If comments are open or we have at least one comment, load up the comment template.
@@ -40,7 +40,6 @@ get_header(); ?>
     endwhile;
     ?>
   </div><!-- .site-content -->
-  <?php get_sidebar(); ?>
 </div>
 <?php
 get_footer();

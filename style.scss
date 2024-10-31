@@ -63,6 +63,48 @@ body {
   background-color: $color-background;
 }
 
+// TODO: Add fonts
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1 {
+  font-size: $size-xxl;
+}
+h2 {
+  font-size: $size-xl;
+}
+h3 {
+  font-size: $size-lg;
+}
+h4 {
+  font-size: $size-md;
+}
+h5 {
+  font-size: $size-sm;
+}
+h6 {
+  font-size: $size-xs;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: $color-text;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
 /* IMPORTS */
 
 @import "./css/header.scss";
