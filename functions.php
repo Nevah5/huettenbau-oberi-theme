@@ -38,7 +38,6 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
   ));
   $wp_customize->add_setting('huettenbau-oberi-page-section1-text', array(
     'default' => __('Example Text', 'huettenbau-oberi-theme'),
-    'sanitize_callback' => 'sanitize_text_field',
   ));
   $wp_customize->add_setting('huettenbau-oberi-page-section2-title', array(
     'default' => __('Section Title', 'huettenbau-oberi-theme'),
@@ -46,7 +45,6 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
   ));
   $wp_customize->add_setting('huettenbau-oberi-page-section2-text', array(
     'default' => __('Example Text', 'huettenbau-oberi-theme'),
-    'sanitize_callback' => 'sanitize_text_field',
   ));
   $wp_customize->add_setting('huettenbau-oberi-page-section3-title', array(
     'default' => __('Section Title', 'huettenbau-oberi-theme'),
@@ -54,7 +52,6 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
   ));
   $wp_customize->add_setting('huettenbau-oberi-page-section3-text', array(
     'default' => __('Example Text', 'huettenbau-oberi-theme'),
-    'sanitize_callback' => 'sanitize_text_field',
   ));
   $wp_customize->add_setting('huettenbau-oberi-page-section4-title', array(
     'default' => __('Section Title', 'huettenbau-oberi-theme'),
@@ -62,7 +59,6 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
   ));
   $wp_customize->add_setting('huettenbau-oberi-page-section4-text', array(
     'default' => __('Example Text', 'huettenbau-oberi-theme'),
-    'sanitize_callback' => 'sanitize_text_field',
   ));
 
   // Add a control

@@ -15,19 +15,19 @@
     <h2>
       <?php echo get_theme_mod('huettenbau-oberi-page-section2-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
     </h2>
-    <?php echo get_theme_mod('huettenbau-oberi-page-section1-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
+    <?php echo get_theme_mod('huettenbau-oberi-page-section2-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
   </section>
   <section>
     <h2>
       <?php echo get_theme_mod('huettenbau-oberi-page-section3-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
     </h2>
-    <?php echo get_theme_mod('huettenbau-oberi-page-section1-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
+    <?php echo get_theme_mod('huettenbau-oberi-page-section3-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
   </section>
   <section>
     <h2>
       <?php echo get_theme_mod('huettenbau-oberi-page-section4-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
     </h2>
-    <?php echo get_theme_mod('huettenbau-oberi-page-section1-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
+    <?php echo get_theme_mod('huettenbau-oberi-page-section4-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
   </section>
 </main>
 <?php get_template_part('footer') ?>
