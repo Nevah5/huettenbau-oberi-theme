@@ -136,6 +136,42 @@ h2.farewell {
       }
     }
   }
+  @media only screen and (max-width: 991px) {
+    flex-direction: column;
+    height: auto;
+
+    .wrapper-left {
+      width: 100%;
+
+      .navigation-wrapper {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+      .logo {
+        width: 400px;
+      }
+    }
+    .wrapper-right {
+      $padding: 5%;
+      width: calc(100% - 2 * $padding);
+      max-width: 100vw;
+      margin-top: 40px;
+      padding: 0 $padding;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: stretch;
+      flex-wrap: wrap;
+
+      .button-wrapper {
+        margin-left: 40px;
+      }
+      .legal {
+        width: calc(100% - 2 * $padding);
+      }
+    }
+  }
 }
 .accent-bar {
   width: 100vw;
