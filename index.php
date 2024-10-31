@@ -1,8 +1,8 @@
 <?php get_template_part('header'); ?>
 <main class="page-design">
   <section class="hero-section">
-    <span>Wilkommen beim</span>
-    <h1>Hüttenbau Oberi</h1>
+    <span><?php echo get_theme_mod('huettenbau-oberi-text-hero-span', __('Welcome on', 'mytheme')); ?></span>
+    <h1><?php echo get_theme_mod('huettenbau-oberi-text-hero-title', __('Page Title', 'mytheme')); ?></h1>
   </section>
   <section>
     <h2>An den Hammer... fertig... nageln!</h2>
