@@ -1,12 +1,13 @@
 <?php
 register_nav_menus(
   array(
-    'menu-1' => __('Navigation Bar', 'huettenbau-oberi-theme'),
-    'menu-2' => __('Footer - Navigation', 'huettenbau-oberi-theme'),
-    'menu-3' => __('Footer - Informationen', 'huettenbau-oberi-theme'),
-    'menu-4' => __('Footer - Diverses', 'huettenbau-oberi-theme'),
-    'menu-5' => __('Footer - Legal', 'huettenbau-oberi-theme'),
-    'menu-6' => __('Footer - Administration', 'huettenbau-oberi-theme'),
+    'menu-nav' => __('Navigation Bar', 'huettenbau-oberi-theme'),
+    'menu-footer-nav' => __('Footer - Navigation', 'huettenbau-oberi-theme'),
+    'menu-footer-info' => __('Footer - Informationen', 'huettenbau-oberi-theme'),
+    'menu-footer-div' => __('Footer - Diverses', 'huettenbau-oberi-theme'),
+    'menu-footer-legal' => __('Footer - Legal', 'huettenbau-oberi-theme'),
+    'menu-footer-admin' => __('Footer - Administration', 'huettenbau-oberi-theme'),
+    'menu-footer-buttons' => __('Footer - Buttons', 'huettenbau-oberi-theme'),
   )
 );
 

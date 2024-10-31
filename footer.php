@@ -7,7 +7,7 @@
         <h3>Navigation</h3>
         <?php
         wp_nav_menu(array(
-          'theme_location' => 'menu-2',
+          'theme_location' => 'menu-footer-nav',
         ));
         ?>
       </div>
@@ -15,7 +15,7 @@
         <h3>Informationen</h3>
         <?php
         wp_nav_menu(array(
-          'theme_location' => 'menu-3',
+          'theme_location' => 'menu-footer-info',
         ));
         ?>
       </div>
@@ -23,7 +23,7 @@
         <h3>Diverses</h3>
         <?php
         wp_nav_menu(array(
-          'theme_location' => 'menu-4',
+          'theme_location' => 'menu-footer-div',
         ));
         ?>
       </div>
@@ -32,15 +32,15 @@
       <?php
       if (function_exists('the_custom_logo')) {
       ?>
-      <div class="site-logo">
-        <?= the_custom_logo() ?>
-      </div>
+        <div class="site-logo">
+          <?= the_custom_logo() ?>
+        </div>
       <?php
       } else {
       ?>
-      <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
-        <?= bloginfo('name'); ?>
-      </a>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
+          <?= bloginfo('name'); ?>
+        </a>
       <?php
       }
       ?>
@@ -52,7 +52,7 @@
       <h3>Administration</h3>
       <?php
       wp_nav_menu(array(
-        'theme_location' => 'menu-6',
+        'theme_location' => 'menu-footer-admin',
       ));
       ?>
     </div>
@@ -67,7 +67,7 @@
         | Alle Rechte vorbehalten</p>
       <?php
       wp_nav_menu(array(
-        'theme_location' => 'menu-5',
+        'theme_location' => 'menu-footer-legal',
       ));
       ?>
     </div>

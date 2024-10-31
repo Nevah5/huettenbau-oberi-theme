@@ -33,7 +33,7 @@
       </label>
       <?php
       wp_nav_menu(array(
-        'theme_location' => 'menu-1',
+        'theme_location' => 'menu-nav',
       ));
       ?>
     </div>
