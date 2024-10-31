@@ -56,21 +56,12 @@
       ));
       ?>
     </div>
-    <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-      <?php
-      $menu = wp_nav_menu(array(
-        'theme_location' => 'menu-footer-buttons',
-        'container' => false,
-        'items_wrap' => '%3$s', // This removes the <ul> wrapper
-        'link_before' => '<div class="wp-block-button is-style-fill style-plain"><a class="wp-block-button__link wp-element-button">',
-        'link_after' => '</a></div>',
-      ));
-
-      $menu = preg_replace('/style-plain/', 'style-destructive', $menu, 1);
-
-      echo $menu;
-      ?>
-    </div>
+    <?php
+    wp_nav_menu(array(
+      'theme_location' => 'menu-footer-buttons',
+      'container_class' => 'buttons',
+    ));
+    ?>
     <div class="legal">
       <p>Copyright © 2024 Hüttenbau Oberi<br>
         | Alle Rechte vorbehalten</p>
