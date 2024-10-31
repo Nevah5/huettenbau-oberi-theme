@@ -32,15 +32,15 @@
       <?php
       if (function_exists('the_custom_logo')) {
       ?>
-      <div class="site-logo">
-        <?= the_custom_logo() ?>
-      </div>
+        <div class="site-logo">
+          <?= the_custom_logo() ?>
+        </div>
       <?php
       } else {
       ?>
-      <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
-        <?= bloginfo('name'); ?>
-      </a>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
+          <?= bloginfo('name'); ?>
+        </a>
       <?php
       }
       ?>
@@ -57,14 +57,16 @@
       ?>
     </div>
     <?php
-    $menu = wp_nav_menu(array(
-      'theme_location' => 'menu-footer-buttons',
-      'container_class' => 'button-wrapper',
-      'echo' => false,
-    ));
-    $menu = preg_replace('/menu-item/', 'menu-item style-plain', $menu);
-    $menu = preg_replace('/style-plain/', 'style-destructive', $menu, 1);
-    echo $menu;
+    if (function_exists('wp_nav_menu')) {
+      $menu = wp_nav_menu([
+        'theme_location' => 'menu-footer-buttons',
+        'container_class' => 'button-wrapper',
+        'echo' => false,
+      ]);
+      $menu = str_replace('class="menu-item', 'class="menu-item style-plain', $menu);
+      $menu = preg_replace('/style-plain/', 'style-destructive', $menu, 1);
+      echo $menu;
+    }
     ?>
     <div class="legal">
       <p>Copyright © 2024 Hüttenbau Oberi<br>
