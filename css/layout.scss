@@ -6,7 +6,11 @@
   padding: 48px;
 
   .site-content {
-    width: 120ch;
+    width: 100ch;
+
+    @media only screen and (max-width: 991px) {
+      width: 100%;
+    }
 
     header.entry-title {
       font-size: $size-xxl;
