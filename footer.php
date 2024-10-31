@@ -57,10 +57,14 @@
       ?>
     </div>
     <?php
-    wp_nav_menu(array(
+    $menu = wp_nav_menu(array(
       'theme_location' => 'menu-footer-buttons',
-      'container_class' => 'buttons',
+      'container_class' => 'button-wrapper',
+      'echo' => false,
     ));
+    $menu = preg_replace('/menu-item/', 'menu-item style-plain', $menu);
+    $menu = preg_replace('/style-plain/', 'style-destructive', $menu, 1);
+    echo $menu;
     ?>
     <div class="legal">
       <p>Copyright © 2024 Hüttenbau Oberi<br>
