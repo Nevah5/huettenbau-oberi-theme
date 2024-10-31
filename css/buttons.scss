@@ -1,8 +1,9 @@
-.wp-block-button {
-  $button-padding-y: $size-sm;
-  $button-padding-x: $size-xl;
-  $button-with-borders-padding: calc($button-padding-y - $button-border-width)
-    calc($button-padding-x - $button-border-width);
+$button-padding-y: $size-sm;
+$button-padding-x: $size-xl;
+$button-with-borders-padding: calc($button-padding-y - $button-border-width)
+  calc($button-padding-x - $button-border-width);
+
+@mixin button-styles() {
   a {
     display: inline-block;
     background-color: $color-primary;
@@ -12,6 +13,7 @@
     border-radius: $button-border-radius;
     text-transform: uppercase;
     font-weight: bold;
+    text-decoration: none;
 
     &:active {
       transform: scale(0.98);
@@ -100,4 +102,24 @@
       background-color: $color-accent-dark;
     }
   }
+}
+
+.button-wrapper {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: $size-xs;
+
+    li {
+      @include button-styles();
+    }
+  }
+}
+
+.wp-block-button {
+  @include button-styles();
 }
