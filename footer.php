@@ -32,15 +32,15 @@
       <?php
       if (function_exists('the_custom_logo')) {
       ?>
-        <div class="site-logo">
-          <?= the_custom_logo() ?>
-        </div>
+      <div class="site-logo">
+        <?= the_custom_logo() ?>
+      </div>
       <?php
       } else {
       ?>
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
-          <?= bloginfo('name'); ?>
-        </a>
+      <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
+        <?= bloginfo('name'); ?>
+      </a>
       <?php
       }
       ?>
@@ -57,10 +57,19 @@
       ?>
     </div>
     <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-      <div class="wp-block-button is-style-fill  style-destructive"><a class="wp-block-button__link wp-element-button"
-          href="#">ANMELDEN</a></div>
-      <div class="wp-block-button is-style-fill  style-plain"><a class="wp-block-button__link wp-element-button"
-          href="#top">NACH OBEN</a></div>
+      <?php
+      $menu = wp_nav_menu(array(
+        'theme_location' => 'menu-footer-buttons',
+        'container' => false,
+        'items_wrap' => '%3$s', // This removes the <ul> wrapper
+        'link_before' => '<div class="wp-block-button is-style-fill style-plain"><a class="wp-block-button__link wp-element-button">',
+        'link_after' => '</a></div>',
+      ));
+
+      $menu = preg_replace('/style-plain/', 'style-destructive', $menu, 1);
+
+      echo $menu;
+      ?>
     </div>
     <div class="legal">
       <p>Copyright © 2024 Hüttenbau Oberi<br>
