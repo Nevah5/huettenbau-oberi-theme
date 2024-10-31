@@ -130,7 +130,7 @@ jobs:
         id: generate_artifact_name
         run: |
           artifact_name=huettenbau-oberi-theme
-          if [[ ${{ github.ref_name }} != 'main' ]] || [[ ${{ github.ref_name }} != 'develop' ]]; then
+          if [[ ${{ github.ref_name }} != 'main' ]] && [[ ${{ github.ref_name }} != 'develop' ]]; then
             artifact_name=$artifact_name-${{ needs.versioning.outputs.VERSION }}
           fi
           echo "name=$artifact_name" >> $GITHUB_OUTPUT
