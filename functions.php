@@ -28,6 +28,10 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
     'default' => __('Hüttenbau Oberi', 'huettenbau-oberi-theme'),
     'sanitize_callback' => 'sanitize_text_field',
   ));
+  $wp_customize->add_setting('huettenbau-oberi-page-hero-image', array(
+    'default' => '',
+    'sanitize_callback' => 'esc_url_raw',
+  ));
   $wp_customize->add_setting('huettenbau-oberi-page-section1-title', array(
     'default' => __('Section Title', 'huettenbau-oberi-theme'),
     'sanitize_callback' => 'sanitize_text_field',
@@ -74,6 +78,11 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
     'settings' => 'huettenbau-oberi-page-hero-title',
     'type' => 'text',
   ));
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'huettenbau-oberi-page-hero-image-control', array(
+    'label' => __('Hero Image', 'huettenbau-oberi-theme'),
+    'section' => 'huettenbau-oberi-page-section',
+    'settings' => 'huettenbau-oberi-page-hero-image',
+  )));
   $wp_customize->add_control('huettenbau-oberi-page-section1-title-control', array(
     'label' => __('Section 1 - Title', 'huettenbau-oberi-theme'),
     'section' => 'huettenbau-oberi-page-section',
@@ -135,6 +144,10 @@ function huettenbau_oberi_theme_customize_register_enqueue()
   $download_link_icon = esc_url(get_parent_theme_file_uri('assets/icons/download-icon.svg'));
 
   $link_icons_css = "
+    section.hero-section {
+      background-image: url('" . get_theme_mod('huettenbau-oberi-page-hero-image', '') . "');
+    }
+
     p a.link-internal::before,
     p a.link-internal-before::before,
     p a.link-internal-after::after {
