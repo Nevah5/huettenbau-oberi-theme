@@ -9,7 +9,6 @@
 </head>
 
 <body>
-  <span id="top"></span>
   <header class="site-header">
     <?php
     if (function_exists('the_custom_logo')) {
