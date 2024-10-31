@@ -12,11 +12,20 @@ main.page-design {
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      background-position: center;
+      background-size: cover;
 
       span,
       h1 {
         width: fit-content;
       }
+    }
+    &:not(.hero-section) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 48px;
     }
   }
 }
