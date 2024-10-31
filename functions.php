@@ -28,6 +28,22 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
     'default' => __('Hüttenbau Oberi', 'huettenbau-oberi-theme'),
     'sanitize_callback' => 'sanitize_text_field',
   ));
+  $wp_customize->add_setting('huettenbau-oberi-page-section1-title', array(
+    'default' => __('Section Title', 'huettenbau-oberi-theme'),
+    'sanitize_callback' => 'sanitize_text_field',
+  ));
+  $wp_customize->add_setting('huettenbau-oberi-page-section2-title', array(
+    'default' => __('Section Title', 'huettenbau-oberi-theme'),
+    'sanitize_callback' => 'sanitize_text_field',
+  ));
+  $wp_customize->add_setting('huettenbau-oberi-page-section3-title', array(
+    'default' => __('Section Title', 'huettenbau-oberi-theme'),
+    'sanitize_callback' => 'sanitize_text_field',
+  ));
+  $wp_customize->add_setting('huettenbau-oberi-page-section4-title', array(
+    'default' => __('Section Title', 'huettenbau-oberi-theme'),
+    'sanitize_callback' => 'sanitize_text_field',
+  ));
 
   // Add a control
   $wp_customize->add_control('huettenbau-oberi-page-hero-span-control', array(
@@ -40,6 +56,30 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
     'label' => __('Hero Title', 'huettenbau-oberi-theme'),
     'section' => 'huettenbau-oberi-page-section',
     'settings' => 'huettenbau-oberi-page-hero-title',
+    'type' => 'text',
+  ));
+  $wp_customize->add_control('huettenbau-oberi-page-section1-title-control', array(
+    'label' => __('Section 1 - Title', 'huettenbau-oberi-theme'),
+    'section' => 'huettenbau-oberi-page-section',
+    'settings' => 'huettenbau-oberi-page-section1-title',
+    'type' => 'text',
+  ));
+  $wp_customize->add_control('huettenbau-oberi-page-section2-title-control', array(
+    'label' => __('Section 2 - Title', 'huettenbau-oberi-theme'),
+    'section' => 'huettenbau-oberi-page-section',
+    'settings' => 'huettenbau-oberi-page-section2-title',
+    'type' => 'text',
+  ));
+  $wp_customize->add_control('huettenbau-oberi-page-section3-title-control', array(
+    'label' => __('Section 3 - Title', 'huettenbau-oberi-theme'),
+    'section' => 'huettenbau-oberi-page-section',
+    'settings' => 'huettenbau-oberi-page-section3-title',
+    'type' => 'text',
+  ));
+  $wp_customize->add_control('huettenbau-oberi-page-section4-title-control', array(
+    'label' => __('Section 4 - Title', 'huettenbau-oberi-theme'),
+    'section' => 'huettenbau-oberi-page-section',
+    'settings' => 'huettenbau-oberi-page-section4-title',
     'type' => 'text',
   ));
 }

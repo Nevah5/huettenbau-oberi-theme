@@ -6,10 +6,14 @@
     </h1>
   </section>
   <section>
-    <h2>An den Hammer... fertig... nageln!</h2>
+    <h2>
+      <?php echo get_theme_mod('huettenbau-oberi-page-section1-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
+    </h2>
   </section>
   <section>
-    <h2>Hör mal wer da hämmert und sägt...</h2>
+    <h2>
+      <?php echo get_theme_mod('huettenbau-oberi-page-section2-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
+    </h2>
     <p>Der Hüttenbau-Oberi ermöglicht Kindern ab der 2. Klasse jährlich in der vierten Sommerferienwoche ein
       erlebnisreiches Lager.</p>
     <p>Während drei Tagen bauen die Kinder zusammen mit den freiwilligen Leiter*innen bis zu fünf Meter hohe Hütten
@@ -20,7 +24,9 @@
       Unterstützung von Gönner*innen und Sponsor*innen ermöglicht.</p>
   </section>
   <section>
-    <h2>Mehr als Hämmern und Sägen</h2>
+    <h2>
+      <?php echo get_theme_mod('huettenbau-oberi-page-section3-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
+    </h2>
     <p>Für das Hüttenbaulager setzen sich die Leiterinnen und Leiter bereits ein Jahr vor dem Lagerstart intensiv mit
       einem Lagerthema und einem dazu passenden Rahmenprogramm auseinander, um den Kindern ein abwechslungsreiches und
       spannendes Lagererlebnis zu bieten.
@@ -30,7 +36,9 @@
       Ausflug.</p>
   </section>
   <section>
-    <h2>Unterstützung mit Holz und Herz</h2>
+    <h2>
+      <?php echo get_theme_mod('huettenbau-oberi-page-section4-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
+    </h2>
     <p>Wir sind stolz und dankbar, auf die Unterstützung von grosszügigen Gönnerinnen und Gönnern sowie Sponsorinnen
       und Sponsoren zählen zu dürfen. Mit ihrem finanziellen Beitrag leisten sie einen wertvollen Beitrag zur
       Realisierung des Ferienlagers.</p>
