@@ -32,15 +32,15 @@
       <?php
       if (function_exists('the_custom_logo')) {
       ?>
-        <div class="site-logo">
-          <?= the_custom_logo() ?>
-        </div>
+      <div class="site-logo">
+        <?= the_custom_logo() ?>
+      </div>
       <?php
       } else {
       ?>
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
-          <?= bloginfo('name'); ?>
-        </a>
+      <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
+        <?= bloginfo('name'); ?>
+      </a>
       <?php
       }
       ?>
@@ -80,6 +80,7 @@
   </div>
 </footer>
 <div class="accent-bar"><span>&copy; <?php echo date("Y"); ?> - Hüttenbau Oberi</span></div>
+<?php wp_footer(); ?>
 </body>
 
 </html>
