@@ -6,9 +6,29 @@
   padding: 48px;
 
   .site-content {
-    .entry-title {
+    width: 120ch;
+
+    header.entry-title {
       font-size: $size-xxl;
       margin-bottom: 48px;
+    }
+    div.entry-content {
+      .wp-block-heading {
+        font-size: $size-md;
+
+        &.has-x-large-font-size {
+          font-size: calc(2 * $size-xl) !important;
+        }
+        &.has-large-font-size {
+          font-size: calc(2 * $size-lg) !important;
+        }
+        &.has-medium-font-size {
+          font-size: calc(2 * $size-md) !important;
+        }
+        &.has-small-font-size {
+          font-size: calc(2 * $size-sm) !important;
+        }
+      }
     }
   }
 }
