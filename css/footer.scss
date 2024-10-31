@@ -1,5 +1,4 @@
 h2.farewell {
-  color: $color-text;
   width: 100vw;
   text-align: center;
 }
@@ -39,20 +38,14 @@ h2.farewell {
         margin-bottom: $size-xxs;
 
         a {
-          color: $color-text;
           text-decoration: none;
           display: block;
-
-          &:hover {
-            color: $color-accent;
-          }
         }
       }
     }
   }
 }
 .site-footer {
-  color: $color-text;
   width: 100vw;
   height: 300px;
   padding: 40px 0;
@@ -124,13 +117,8 @@ h2.farewell {
             right: calc($space-between * -1);
           }
           a {
-            color: $color-text;
             text-decoration: none;
             display: block;
-
-            &:hover {
-              color: $color-accent;
-            }
           }
         }
       }
