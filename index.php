@@ -14,7 +14,7 @@
           <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
           <?php
           wp_nav_menu(array(
-            'theme_location' => 'menu-1',
+            'theme_location' => 'menu-nav',
           ));
           ?>
         </header><!-- .entry-header -->

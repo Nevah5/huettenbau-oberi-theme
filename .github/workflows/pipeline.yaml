@@ -126,10 +126,18 @@ jobs:
           cp screenshot.png build/
           cp assets/ build/ -r
           cp LICENSE build/
+      - name: Generate artifact name
+        id: generate_artifact_name
+        run: |
+          artifact_name=huettenbau-oberi-theme
+          if [[ ${{ github.ref_name }} != 'main' ]] || [[ ${{ github.ref_name }} != 'develop' ]]; then
+            artifact_name=$artifact_name-${{ needs.versioning.outputs.VERSION }}
+          fi
+          echo "name=$artifact_name" >> $GITHUB_OUTPUT
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: huettenbau-oberi-theme
+          name: ${{ steps.generate_artifact_name.outputs.name }}
           retention-days: 1
           path: build/*
   release:

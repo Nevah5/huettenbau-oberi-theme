@@ -13,15 +13,15 @@
     <?php
     if (function_exists('the_custom_logo')) {
     ?>
-    <div class="site-logo">
-      <?= the_custom_logo() ?>
-    </div>
+      <div class="site-logo">
+        <?= the_custom_logo() ?>
+      </div>
     <?php
     } else {
     ?>
-    <a href="<?php echo esc_url(home_url('/')); ?>" class="site-title">
-      <?= bloginfo('name'); ?>
-    </a>
+      <a href="<?php echo esc_url(home_url('/')); ?>" class="site-title">
+        <?= bloginfo('name'); ?>
+      </a>
     <?php
     }
     ?>
@@ -32,7 +32,7 @@
       </label>
       <?php
       wp_nav_menu(array(
-        'theme_location' => 'menu-1',
+        'theme_location' => 'menu-nav',
       ));
       ?>
     </div>

@@ -54,6 +54,7 @@ body {
   box-sizing: border-box;
   font-size: $size-md;
   line-height: 1.5;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -67,3 +68,4 @@ body {
 @import "./css/header.scss";
 @import "./css/buttons.scss";
 @import "./css/links.scss";
+@import "./css/footer.scss";
