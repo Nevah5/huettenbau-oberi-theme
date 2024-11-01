@@ -49,7 +49,8 @@
         figcaption {
           margin-top: $size-xs;
           color: $color-secondary-light;
-          width: 50%;
+          max-width: 50%;
+          width: fit-content;
         }
       }
     }
