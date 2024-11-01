@@ -48,6 +48,15 @@ main.page-design {
         font-size: $size-xxl;
         margin-bottom: 1em;
       }
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 48px;
+      }
+      p {
+        width: 70ch;
+      }
     }
   }
 }
