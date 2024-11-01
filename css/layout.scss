@@ -33,6 +33,25 @@
           font-size: calc(2 * $size-sm) !important;
         }
       }
+      figure.wp-block-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0 auto;
+        margin: 32px 0;
+
+        img {
+          width: 60%;
+          height: auto;
+          border-radius: 8px;
+        }
+        figcaption {
+          margin-top: $size-xs;
+          color: $color-secondary-light;
+          width: 50%;
+        }
+      }
     }
   }
 }
