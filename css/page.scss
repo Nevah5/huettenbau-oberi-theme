@@ -20,6 +20,7 @@ main.page-design {
       h1 {
         width: fit-content;
         z-index: 2;
+        color: $color-background;
       }
       span {
         font-size: $size-xl;
