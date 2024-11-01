@@ -14,10 +14,27 @@ main.page-design {
       flex-direction: column;
       background-position: center;
       background-size: cover;
+      position: relative;
 
       span,
       h1 {
         width: fit-content;
+        z-index: 2;
+      }
+      span {
+        font-size: $size-xl;
+        font-weight: bold;
+      }
+      h1 {
+        font-size: calc($size-md + $size-xxl);
+      }
+      .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba($color-background, 0.3);
       }
     }
     &:not(.hero-section) {
@@ -26,6 +43,11 @@ main.page-design {
       align-items: center;
       flex-direction: column;
       padding: 48px;
+
+      h2 {
+        font-size: $size-xxl;
+        margin-bottom: 1em;
+      }
     }
   }
 }

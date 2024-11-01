@@ -4,6 +4,7 @@
     <span><?php echo get_theme_mod('huettenbau-oberi-page-hero-span', __('Welcome on', 'huettenbau-oberi-theme')); ?></span>
     <h1><?php echo get_theme_mod('huettenbau-oberi-page-hero-title', __('Page Title', 'huettenbau-oberi-theme')); ?>
     </h1>
+    <div class="image-overlay"></div>
   </section>
   <section class="section1">
     <h2>
