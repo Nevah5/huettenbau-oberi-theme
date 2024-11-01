@@ -23,19 +23,19 @@ get_header(); ?>
       the_post();
   ?>
 
-  <article <?php post_class(); ?>>
+      <article <?php post_class(); ?>>
 
-    <?php the_post_thumbnail('my-custom-image-size'); ?>
+        <?php the_post_thumbnail('my-custom-image-size'); ?>
 
-    <header class="entry-header">
-      <?php the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '">', '</a></h2>'); ?>
-    </header><!-- .entry-header -->
+        <header class="entry-header">
+          <?php the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '">', '</a></h2>'); ?>
+        </header><!-- .entry-header -->
 
-    <div class="entry-content">
-      <?php the_content(esc_html__('Continue reading &rarr;', 'my-custom-theme')); ?>
-    </div><!-- .entry-content -->
+        <div class="entry-content">
+          <?php the_content(esc_html__('Continue reading &rarr;', 'huettenbau-oberi-theme')); ?>
+        </div><!-- .entry-content -->
 
-  </article><!-- #post-## -->
+      </article><!-- #post-## -->
 
   <?php
       // If comments are open or we have at least one comment, load up the comment template.

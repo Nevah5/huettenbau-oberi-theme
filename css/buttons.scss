@@ -1,28 +1,63 @@
-.wp-block-button {
+$button-padding-y: $size-sm;
+$button-padding-x: $size-xl;
+$button-with-borders-padding: calc($button-padding-y - $button-border-width)
+  calc($button-padding-x - $button-border-width);
+
+@mixin button-styles() {
   a {
+    display: inline-block;
     background-color: $color-primary;
     color: $color-background;
     border: none;
-    padding: $size-sm $size-xl;
+    padding: $button-padding-y $button-padding-x;
     border-radius: $button-border-radius;
     text-transform: uppercase;
     font-weight: bold;
+    text-decoration: none;
+
+    &:active {
+      transform: scale(0.98);
+    }
   }
 
   &.style-primary > a {
     background-color: $color-primary;
     color: $color-background;
+
+    &:hover {
+      background-color: $color-primary-light;
+    }
+    &:active {
+      background-color: $color-primary-dark;
+    }
   }
 
   &.style-secondary > a {
     background-color: $color-background;
     color: $color-secondary;
     border: $color-secondary solid $button-border-width;
+    padding: $button-with-borders-padding;
+
+    &:hover {
+      background-color: $color-secondary-light;
+      color: $color-background;
+    }
+    &:active {
+      background-color: $color-secondary-dark;
+    }
   }
 
   &.style-transparent > a {
     background-color: transparent;
     color: $color-secondary;
+
+    &:hover {
+      background-color: $color-secondary-light;
+      color: $color-background;
+    }
+    &:active {
+      background-color: $color-secondary-dark;
+    }
   }
 
   &.style-plain > a {
@@ -30,16 +65,61 @@
     padding: 0;
     border-radius: 0;
     color: $color-secondary;
+
+    &:hover {
+      border-bottom: solid calc($size-xxs / 2) $color-secondary;
+      margin-bottom: calc($size-xxs / 2 * -1);
+    }
+    &:active {
+      transform: none !important;
+    }
   }
 
   &.style-destructive > a {
     background-color: $color-accent;
     color: $color-background;
+    padding: $button-with-borders-padding;
+
+    &:hover {
+      background-color: $color-accent-light;
+    }
+    &:active {
+      background-color: $color-accent-dark;
+    }
   }
 
   &.style-destructive-secondary > a {
     background-color: $color-background;
     color: $color-accent;
     border: $color-accent solid $button-border-width;
+    padding: $button-with-borders-padding;
+
+    &:hover {
+      background-color: $color-accent-light;
+      color: $color-background;
+    }
+    &:active {
+      background-color: $color-accent-dark;
+    }
   }
+}
+
+.button-wrapper {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: $size-xs;
+
+    li {
+      @include button-styles();
+    }
+  }
+}
+
+.wp-block-button {
+  @include button-styles();
 }

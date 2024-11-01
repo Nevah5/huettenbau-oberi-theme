@@ -115,16 +115,29 @@ jobs:
       - name: Add header to style.css
         run: |
           echo '${{ env.FILE_HEADER }}' | cat - style.css > temp && mv temp style.css
+      - name: Delete unwanted source files
+        run: |
+          find . -type f -name "*.afdesign" -exec rm -f {} \;
       - name: Prepare ZIP
         run: |
           mkdir build
           cp *.css build/
           cp *.php build/
+          cp screenshot.png build/
+          cp assets/ build/ -r
           cp LICENSE build/
+      - name: Generate artifact name
+        id: generate_artifact_name
+        run: |
+          artifact_name=huettenbau-oberi-theme
+          if [[ ${{ github.ref_name }} != 'main' ]] && [[ ${{ github.ref_name }} != 'develop' ]]; then
+            artifact_name=$artifact_name-${{ needs.versioning.outputs.VERSION }}
+          fi
+          echo "name=$artifact_name" >> $GITHUB_OUTPUT
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: huettenbau-oberi-theme
+          name: ${{ steps.generate_artifact_name.outputs.name }}
           retention-days: 1
           path: build/*
   release:
@@ -156,7 +169,6 @@ jobs:
           zip -r huettenbau-oberi-theme.zip .
           mv huettenbau-oberi-theme.zip ..
           cd ..
-          mv huettenbau-oberi-theme.zip huettenbau-oberi-theme_${{ needs.versioning.outputs.VERSION }}.zip
       - name: Clean up tmp directory
         run: |
           rm -rf tmp
@@ -165,6 +177,6 @@ jobs:
           name: Version ${{ needs.versioning.outputs.VERSION }}
           tag: ${{ needs.versioning.outputs.VERSION }}
           prerelease: ${{ github.ref_name == 'develop' }}
-          artifacts: "huettenbau-oberi-theme_${{ needs.versioning.outputs.VERSION }}.zip"
+          artifacts: "huettenbau-oberi-theme.zip"
           generateReleaseNotes: true
           makeLatest: true

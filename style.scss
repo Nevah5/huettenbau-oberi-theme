@@ -1,9 +1,23 @@
 /* COLORS */
-$color-primary: #9dd1de;
+$color-primary: #80bcdb;
 $color-secondary: #3a3a3a;
 $color-accent: #fa1717;
 $color-background: #ffffff;
-$color-text: #000000;
+$color-text: $color-secondary;
+
+/* LIGHT COLORS */
+$color-primary-light: lighten($color-primary, 5%);
+$color-secondary-light: lighten($color-secondary, 15%);
+$color-accent-light: lighten($color-accent, 10%);
+$color-background-light: lighten($color-background, 5%);
+$color-text-light: lighten($color-text, 15%);
+
+/* DARK COLORS */
+$color-primary-dark: darken($color-primary, 5%);
+$color-secondary-dark: darken($color-secondary, 5%);
+$color-accent-dark: darken($color-accent, 5%);
+$color-background-dark: darken($color-background, 5%);
+$color-text-dark: darken($color-text, 15%);
 
 /* SIZES */
 $size-xxs: 0.25rem; // 4px
@@ -17,6 +31,20 @@ $size-xxl: 2.5rem; // 40px
 $button-border-radius: 5px;
 $button-border-width: 2px;
 
+/* BACKGROUND COLOR FILTERS */
+@mixin background-filter-primary() {
+  filter: brightness(0) saturate(100%) invert(80%) sepia(13%) saturate(640%) hue-rotate(145deg) brightness(98%)
+    contrast(91%);
+}
+@mixin background-filter-secondary() {
+  filter: brightness(0) saturate(100%) invert(6%) sepia(0%) saturate(1741%) hue-rotate(140deg) brightness(125%)
+    contrast(65%);
+}
+@mixin background-filter-accent() {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(83%) saturate(6529%) hue-rotate(355deg) brightness(98%)
+    contrast(100%);
+}
+
 /* BASIC STYLES */
 
 html,
@@ -26,6 +54,7 @@ body {
   box-sizing: border-box;
   font-size: $size-md;
   line-height: 1.5;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -34,7 +63,56 @@ body {
   background-color: $color-background;
 }
 
+// TODO: Add fonts
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: $color-text;
+}
+
+h1 {
+  font-size: $size-xxl;
+}
+h2 {
+  font-size: $size-xl;
+}
+h3 {
+  font-size: $size-lg;
+}
+h4 {
+  font-size: $size-md;
+}
+h5 {
+  font-size: $size-sm;
+}
+h6 {
+  font-size: $size-xs;
+}
+
+span,
+p {
+  margin: 0;
+  color: $color-text;
+}
+
+a {
+  color: $color-text;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
 /* IMPORTS */
 
 @import "./css/header.scss";
 @import "./css/buttons.scss";
+@import "./css/links.scss";
+@import "./css/layout.scss";
+@import "./css/page.scss";
+@import "./css/footer.scss";

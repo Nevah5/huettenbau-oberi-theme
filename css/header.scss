@@ -7,9 +7,10 @@
   align-items: center;
   padding: $size-md $size-xl;
   background-color: rgba($color-background, 0.5);
-  backdrop-filter: blur($size-xs);
+  backdrop-filter: blur(8px);
+  z-index: 99;
 
-  p.site-title {
+  .site-logo {
     max-width: 280px;
 
     img {
@@ -41,7 +42,6 @@
 
       li {
         margin-right: $size-md;
-        color: $color-secondary;
         font-weight: bold;
 
         &.current_page_item a {
@@ -52,19 +52,13 @@
         }
 
         a {
-          color: $color-secondary;
           text-decoration: none;
-
-          &:hover {
-            color: $color-accent;
-          }
         }
       }
     }
-    @media only screen and (max-width: 750px) {
+    @media only screen and (max-width: 991px) {
       $list-item-height: calc(2 * $size-xl);
       .nav-toggle-label {
-        z-index: 100;
         width: 30px;
         height: 30px;
         position: absolute;
@@ -109,40 +103,37 @@
         }
       }
       ul {
-        gap: 0;
-        opacity: 0;
-        width: 100vw;
         display: flex;
-        top: 100%;
-        left: 0;
-        z-index: 100;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         justify-content: center;
+        gap: 0;
         position: absolute;
-        background-color: $color-background;
-        transition: opacity 0.3s ease-in-out;
+        top: 0;
+        right: 0;
+        height: 0;
+        width: 100vw;
+        z-index: -1;
+        padding-left: 200px;
+        overflow: hidden;
+        background-color: rgba($color-background, 0.5);
+        backdrop-filter: blur(8px);
+        transition:
+          height 0.3s ease-in-out,
+          opacity 0.3s ease-in-out;
 
         li {
-          width: 100%;
           margin: 0;
-          height: 0;
-          transition: height 0.3s ease-in-out;
 
           &.current_page_item a {
             background-color: $color-accent;
             color: $color-background;
-            padding-left: $size-md;
           }
           a {
             display: block;
-            padding: 0;
-            width: 100%;
-            padding-left: $size-md;
+            width: calc(100% - $size-md - $size-xs);
+            padding: calc($list-item-height / 4) $size-xs calc($list-item-height / 4) $size-md !important;
             cursor: pointer;
-            transition:
-              padding-top 0.3s ease-in-out,
-              padding-bottom 0.3s ease-in-out;
             margin: 0;
             border-bottom-width: 0 !important;
 
@@ -154,17 +145,13 @@
         }
       }
       input[type="checkbox"]:checked ~ div > ul {
-        opacity: 1;
-        max-height: 200px;
-
-        li {
-          height: $list-item-height;
-
-          a {
-            padding-top: calc($list-item-height / 4);
-            padding-bottom: calc($list-item-height / 4);
-          }
-        }
+        height: 100vh;
+      }
+    }
+    @media only screen and (max-width: 500px) {
+      ul {
+        width: 100vw;
+        padding: 0;
       }
     }
   }
