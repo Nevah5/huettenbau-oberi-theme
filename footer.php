@@ -32,15 +32,15 @@
       <?php
       if (function_exists('the_custom_logo')) {
       ?>
-        <div class="site-logo">
-          <?= the_custom_logo() ?>
-        </div>
+      <div class="site-logo">
+        <?= the_custom_logo() ?>
+      </div>
       <?php
       } else {
       ?>
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
-          <?= bloginfo('name'); ?>
-        </a>
+      <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
+        <?= bloginfo('name'); ?>
+      </a>
       <?php
       }
       ?>
@@ -69,6 +69,8 @@
     }
     ?>
     <div class="legal">
+      <p>&copy; 2024 - Hüttenbau Oberi<br />
+        | Alle Rechte vorbehalten</p>
       <?php
       wp_nav_menu(array(
         'theme_location' => 'menu-footer-legal',
