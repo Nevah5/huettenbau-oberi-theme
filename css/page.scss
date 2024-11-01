@@ -55,7 +55,8 @@ main.page-design {
         gap: 48px;
       }
       p {
-        width: 70ch;
+        width: fit-content;
+        max-width: 70ch;
       }
     }
   }
