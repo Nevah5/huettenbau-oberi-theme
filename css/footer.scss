@@ -1,5 +1,4 @@
 h2.farewell {
-  color: $color-secondary;
   width: 100vw;
   text-align: center;
 }
@@ -39,20 +38,14 @@ h2.farewell {
         margin-bottom: $size-xxs;
 
         a {
-          color: $color-secondary;
           text-decoration: none;
           display: block;
-
-          &:hover {
-            color: $color-accent;
-          }
         }
       }
     }
   }
 }
 .site-footer {
-  color: $color-secondary;
   width: 100vw;
   height: 300px;
   padding: 40px 0;
@@ -102,7 +95,7 @@ h2.farewell {
       justify-content: space-between;
       flex-direction: column;
 
-      .menu ul {
+      ul.menu {
         $space-between: 16px;
         display: flex;
         justify-content: flex-start;
@@ -124,13 +117,8 @@ h2.farewell {
             right: calc($space-between * -1);
           }
           a {
-            color: $color-secondary;
             text-decoration: none;
             display: block;
-
-            &:hover {
-              color: $color-accent;
-            }
           }
         }
       }
@@ -176,7 +164,6 @@ h2.farewell {
 .accent-bar {
   width: 100vw;
   height: $size-xxl;
-  color: $color-background;
   background-color: $color-accent;
   display: flex;
   justify-content: center;
@@ -184,5 +171,6 @@ h2.farewell {
 
   span {
     font-weight: bold;
+    color: $color-background;
   }
 }

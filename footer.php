@@ -69,8 +69,6 @@
     }
     ?>
     <div class="legal">
-      <p>Copyright © 2024 Hüttenbau Oberi<br>
-        | Alle Rechte vorbehalten</p>
       <?php
       wp_nav_menu(array(
         'theme_location' => 'menu-footer-legal',
@@ -80,6 +78,14 @@
   </div>
 </footer>
 <div class="accent-bar"><span>&copy; <?php echo date("Y"); ?> - Hüttenbau Oberi</span></div>
+<?php wp_footer(); ?>
 </body>
+
+<!--
+    |\__/,|   (`\
+  _.|o o  |_   ) )
+-(((---(((--------
+Designed by Noah Geeler
+-->
 
 </html>

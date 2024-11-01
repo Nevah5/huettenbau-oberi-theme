@@ -42,7 +42,6 @@
 
       li {
         margin-right: $size-md;
-        color: $color-secondary;
         font-weight: bold;
 
         &.current_page_item a {
@@ -53,12 +52,7 @@
         }
 
         a {
-          color: $color-secondary;
           text-decoration: none;
-
-          &:hover {
-            color: $color-accent;
-          }
         }
       }
     }
