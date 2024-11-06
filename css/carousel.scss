@@ -38,15 +38,28 @@
   width: var(--carousel-width);
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
 
+  @media only screen and (max-width: 991px) {
+    --carousel-width: 90vw;
+    .carousel__preview {
+      width: 100% !important;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        height: 300px;
+        max-width: 100%;
+      }
+    }
+  }
   .carousel__preview {
     margin: 0;
     width: calc(100% - 1rem);
     gap: 1rem;
     display: flex;
     justify-content: flex-start;
-    grid-template-columns: 75% 25%;
 
     img {
       height: 450px;

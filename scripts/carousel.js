@@ -1,10 +1,10 @@
 const setupButtons = (carousel) => {
   const nav = carousel.querySelector('.carousel__nav');
-  const maxItems = parseInt(/\d+/.exec(carousel.getAttribute('style'))[0]);
   const imgAmount = carousel.querySelectorAll('.carousel__img').length;
-  const maxIndex = Math.ceil(imgAmount / maxItems) - 1;
 
   nav.querySelector('.carousel__button--prev').addEventListener('click', _ => {
+    const maxItems = parseInt(/\d+/.exec(carousel.getAttribute('style'))[0]);
+    const maxIndex = Math.ceil(imgAmount / maxItems) - 1;
     const index = parseInt(/\d+/.exec(nav.getAttribute('style'))[0]);
     if (index === 0) {
       nav.style = `--slider-index: ${maxIndex}`;
@@ -13,6 +13,8 @@ const setupButtons = (carousel) => {
     nav.style = `--slider-index: ${index - 1}`;
   });
   nav.querySelector('.carousel__button--next').addEventListener('click', _ => {
+    const maxItems = parseInt(/\d+/.exec(carousel.getAttribute('style'))[0]);
+    const maxIndex = Math.ceil(imgAmount / maxItems) - 1;
     const index = parseInt(/\d+/.exec(nav.getAttribute('style'))[0]);
     if (index === maxIndex) {
       nav.style = `--slider-index: 0`;
@@ -72,6 +74,24 @@ const initCarousels = _ => {
   });
 }
 
+const onBodyResize = _ => {
+  const carousel = document.querySelector('.carousel');
+  if (window.innerWidth <= 639) {
+    carousel.style = '--amount-carousel-images: 3;';
+    return;
+  } else if (window.innerWidth <= 767) {
+    carousel.style = '--amount-carousel-images: 4;';
+    return;
+  } else if (window.innerWidth <= 991) {
+    carousel.style = '--amount-carousel-images: 5;';
+    return;
+  }
+  carousel.style = '--amount-carousel-images: 6;';
+}
+
 document.addEventListener('DOMContentLoaded', _ => {
   initCarousels();
+  onBodyResize()
 });
+
+window.addEventListener("resize", onBodyResize);
