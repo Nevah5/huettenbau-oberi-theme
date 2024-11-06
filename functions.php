@@ -161,6 +161,7 @@ function huettenbau_oberi_theme_customize_register_enqueue()
     }
   ";
   wp_add_inline_style('huettenbau-oberi-theme', $link_icons_css);
+  wp_enqueue_script('carousel', get_template_directory_uri() . 'carousel.js', array(), false, true);
 }
 
 add_action('wp_enqueue_scripts', 'huettenbau_oberi_theme_customize_register_enqueue');
