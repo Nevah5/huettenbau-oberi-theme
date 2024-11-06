@@ -123,9 +123,9 @@ jobs:
           mkdir build
           cp *.css build/
           cp *.php build/
-          cp *.js build/
           cp screenshot.png build/
           cp assets/ build/ -r
+          cp scripts/ build/ -r
           cp LICENSE build/
       - name: Generate artifact name
         id: generate_artifact_name
