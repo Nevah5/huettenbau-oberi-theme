@@ -38,7 +38,7 @@
   width: var(--carousel-width);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
 
   @media only screen and (max-width: 991px) {
@@ -88,24 +88,24 @@
     max-width: 100%;
     overflow: hidden;
 
-    &::before,
-    &::after {
-      z-index: 1;
-      position: absolute;
-      display: block;
-      content: "";
-      top: 0;
-      height: 100%;
-      width: calc(var(--carousel-width) / var(--amount-carousel-images) / 4);
-    }
-    &::before {
-      left: 0;
-      background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
-    }
-    &::after {
-      right: 0;
-      background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
-    }
+    // &::before,
+    // &::after {
+    //   z-index: 1;
+    //   position: absolute;
+    //   display: block;
+    //   content: "";
+    //   top: 0;
+    //   height: 100%;
+    //   width: calc(var(--carousel-width) / var(--amount-carousel-images) / 4);
+    // }
+    // &::before {
+    //   left: 0;
+    //   background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+    // }
+    // &::after {
+    //   right: 0;
+    //   background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+    // }
     .carousel__img {
       --image-sizing: calc(
         (var(--carousel-width) - (var(--amount-carousel-images) - 1) * 1rem) / var(--amount-carousel-images)

@@ -1,3 +1,21 @@
+const disableButtonIfUnnecessary = (carousel) => {
+  const nav = carousel.querySelector('.carousel__nav');
+  const previousButton = nav.querySelector('.carousel__button--prev')
+  const nextButton = nav.querySelector('.carousel__button--next')
+  const imgAmount = carousel.querySelectorAll('.carousel__img').length;
+
+  const maxItems = parseInt(/\d+/.exec(carousel.getAttribute('style'))[0]);
+  console.log("check");
+
+  if (imgAmount <= maxItems) {
+    previousButton.style = 'display: none';
+    nextButton.style = 'display: none';
+  } else {
+    previousButton.style = 'display: initial';
+    nextButton.style = 'display: initial';
+  }
+}
+
 const setupButtons = (carousel) => {
   const nav = carousel.querySelector('.carousel__nav');
   const imgAmount = carousel.querySelectorAll('.carousel__img').length;
@@ -22,11 +40,13 @@ const setupButtons = (carousel) => {
     }
     nav.style = `--slider-index: ${index + 1}`;
   });
+
+  disableButtonIfUnnecessary(carousel);
 }
 
 const setupImageSelection = (carousel) => {
   const figureImg = carousel.querySelector('.carousel__preview img');
-  const figureCaption = carousel.querySelector('.carousel__preview figcaption');
+  const figureCaption = carousel.querySelector('.carousel__preview figcaption p');
   const images = carousel.querySelectorAll('.carousel__img');
 
   images.forEach(image => {
@@ -75,18 +95,20 @@ const initCarousels = _ => {
 }
 
 const onBodyResize = _ => {
-  const carousel = document.querySelector('.carousel');
-  if (window.innerWidth <= 639) {
-    carousel.style = '--amount-carousel-images: 3;';
-    return;
-  } else if (window.innerWidth <= 767) {
-    carousel.style = '--amount-carousel-images: 4;';
-    return;
-  } else if (window.innerWidth <= 991) {
-    carousel.style = '--amount-carousel-images: 5;';
-    return;
-  }
-  carousel.style = '--amount-carousel-images: 6;';
+  const carousels = document.querySelectorAll('.carousel');
+  carousels.forEach(carousel => {
+    if (window.innerWidth <= 639) {
+      carousel.style = '--amount-carousel-images: 3;';
+    } else if (window.innerWidth <= 767) {
+      carousel.style = '--amount-carousel-images: 4;';
+    } else if (window.innerWidth <= 991) {
+      carousel.style = '--amount-carousel-images: 5;';
+    } else {
+      carousel.style = '--amount-carousel-images: 6;';
+    }
+
+    disableButtonIfUnnecessary(carousel);
+  });
 }
 
 document.addEventListener('DOMContentLoaded', _ => {
