@@ -49,12 +49,13 @@ main.page-design {
         font-size: $size-xxl;
         margin-bottom: 1em;
       }
-      div:not(.carousel) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 48px;
-      }
+      // breaks carousel styles
+      // div:not(.carousel) {
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   gap: 48px;
+      // }
       p {
         width: fit-content;
         max-width: 70ch;
