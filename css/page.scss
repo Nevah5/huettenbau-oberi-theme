@@ -44,7 +44,7 @@ main.page-design {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin: $size-xl 0;
+      margin: 4rem 0 0;
       padding: 0 $size-xl;
 
       @mixin content-section-title-left-right-styling {
