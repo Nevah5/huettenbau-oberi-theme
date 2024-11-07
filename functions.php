@@ -132,7 +132,7 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
     'type' => 'text',
   ));
 
-  for ($i = 0; $i < 20; $i++) {
+  for ($i = 1; $i <= 20; $i++) {
     // Image
     $wp_customize->add_setting('huettenbau-oberi-page-carousel-image' . $i, array(
       'default' => '',
@@ -149,7 +149,7 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
       'default' => __('Example Caption', 'huettenbau-oberi-theme'),
     ));
     $wp_customize->add_control('huettenbau-oberi-page-carousel-image' . $i . '-caption-text-control', array(
-      'label' => __('Image ' . $i . ' Caption', 'huettenbau-oberi-theme'),
+      'label' => __('', 'huettenbau-oberi-theme'),
       'section' => 'huettenbau-oberi-carousel-settings',
       'settings' => 'huettenbau-oberi-page-carousel-image' . $i . '-caption-text',
       'type' => 'text',

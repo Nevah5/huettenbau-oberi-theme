@@ -56,6 +56,7 @@ const setupImageSelection = (carousel) => {
       image.classList.add('carousel__img--active');
 
       figureImg.src = image.getAttribute('src');
+      figureImg.alt = image.getAttribute('caption');
       figureCaption.textContent = image.getAttribute('caption');
     });
   });
@@ -86,9 +87,21 @@ const setupImagePreviewOverlay = (carousel) => {
   overlayCloseIcon.addEventListener('click', _ => toggleOverlay());
 }
 
+const setupInitPreview = (carousel) => {
+  const figureImg = carousel.querySelector('.carousel__preview img');
+  const figureCaption = carousel.querySelector('.carousel__preview figcaption p');
+  const images = carousel.querySelectorAll('.carousel__img');
+
+  figureImg.src = images[0].getAttribute('src');
+  figureImg.alt = images[0].getAttribute('caption');
+  figureCaption.textContent = images[0].getAttribute('caption');
+  images[0].classList.add('carousel__img--active');
+}
+
 const initCarousels = _ => {
   document.querySelectorAll('.carousel').forEach(carousel => {
     setupButtons(carousel);
+    setupInitPreview(carousel);
     setupImageSelection(carousel);
     setupImagePreviewOverlay(carousel);
   });

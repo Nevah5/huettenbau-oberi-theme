@@ -1,3 +1,32 @@
+<?php
+function getCarousel()
+{
+  $images = "";
+  for ($i = 1; $i <= 20; $i++) {
+    $imgUrl = get_theme_mod('huettenbau-oberi-page-carousel-image' . $i, '');
+    $imgCaption = get_theme_mod('huettenbau-oberi-page-carousel-image' . $i . '-caption-text', __('', 'huettenbau-oberi-theme'));
+    $images .= "<div class=\"carousel__img\"
+          style=\"background-image: url('" . $imgUrl . "')\"
+          src=\"" . $imgUrl . "\" caption=\"" . $imgCaption . "\"></div>";
+  }
+  return "
+      <div class=\"carousel\" style=\"--amount-carousel-images: 6;\">
+      <figure class=\"carousel__preview\">
+        <img src=\"\" alt=\"\">
+        <figcaption>
+          <p></p>
+        </figcaption>
+      </figure>
+      <div class=\"carousel__nav\" style=\"--slider-index: 0;\">
+        <button class=\"carousel__button carousel__button--prev\"></button>
+        " . $images . "
+        <button class=\"carousel__button carousel__button--next\"></button>
+      </div>
+    </div>
+  ";
+}
+
+?>
 <?php get_template_part('header'); ?>
 <main class="page-design">
   <section class="hero-section">
@@ -17,54 +46,7 @@
       <?php echo get_theme_mod('huettenbau-oberi-page-section2-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
     </h2>
     <?php echo get_theme_mod('huettenbau-oberi-page-section2-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
-    <div class="carousel" style="--amount-carousel-images: 6;">
-      <figure class="carousel__preview">
-        <img src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" alt="Code Preview">
-        <figcaption>
-          <p>A fancy code preview just as a placeholder.</p>
-        </figcaption>
-      </figure>
-      <div class="carousel__nav" style="--slider-index: 0;">
-        <button class="carousel__button carousel__button--prev"></button>
-        <div class="carousel__img carousel__img--active"
-          style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
-          src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Code 1"></div>
-        <div class="carousel__img"
-          style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
-          src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Vertical 2"></div>
-        <div class="carousel__img"
-          style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
-          src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Code 3"></div>
-        <div class="carousel__img"
-          style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
-          src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Code 4"></div>
-        <div class="carousel__img"
-          style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
-          src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Code 5"></div>
-        <div class="carousel__img"
-          style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
-          src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Code 6"></div>
-        <div class="carousel__img"
-          style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
-          src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Code 7"></div>
-        <div class="carousel__img"
-          style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
-          src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Code 8"></div>
-        <div class="carousel__img"
-          style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
-          src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Code 9"></div>
-        <div class="carousel__img"
-          style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
-          src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Code 10"></div>
-        <div class="carousel__img"
-          style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
-          src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Code 10"></div>
-        <div class="carousel__img"
-          style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
-          src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Code 10"></div>
-        <button class="carousel__button carousel__button--next"></button>
-      </div>
-    </div>
+    <?= getCarousel() ?>
   </section>
   <section class="section3">
     <h2>
