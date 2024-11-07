@@ -10,11 +10,10 @@ get_header(); ?>
 
     <div class="entry-content">
       <p>Es scheint, als ob hier nicht zu finden ist.</p>
-      <p>Hast du bereits in den Hütten nachgeschaut?</p>
+      <p>Hast du bereits <a class="link-internal" href="/">in den Hütten</a> nachgeschaut?</p>
     </div>
 
   </article>
 </div>
 <?php
-get_sidebar();
 get_footer();
