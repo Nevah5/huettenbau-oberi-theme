@@ -5,6 +5,17 @@ function getCarousel()
   for ($i = 1; $i <= 20; $i++) {
     $imgUrl = get_theme_mod('huettenbau-oberi-page-carousel-image' . $i, '');
     $imgCaption = get_theme_mod('huettenbau-oberi-page-carousel-image' . $i . '-caption-text', __('', 'huettenbau-oberi-theme'));
+
+    if ($i === 1 && $imgUrl === '') {
+      $exampleUrl = "https://photographylife.com/wp-content/uploads/2014/09/Nikon-D750-Image-Samples-2.jpg";
+      $images .= "<div class=\"carousel__img\"
+            style=\"background-image: url('" . $exampleUrl . "')\"
+            src=\"" . $exampleUrl . "\" caption=\"Beispiel Image, bitte ersetzen!\"></div>";
+      continue;
+    }
+    if ($imgUrl === '') {
+      continue;
+    }
     $images .= "<div class=\"carousel__img\"
           style=\"background-image: url('" . $imgUrl . "')\"
           src=\"" . $imgUrl . "\" caption=\"" . $imgCaption . "\"></div>";
