@@ -1,26 +1,20 @@
 <?php
 
-/**
- * The template for displaying 404 page.
- *
- * @copyright  Copyright (c) 2020, Danny Cooper
- * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
- */
-
 get_header(); ?>
 <div class="site-content">
-  <article class="no-results">
+  <article class="not-found">
 
     <header class="entry-header">
-      <h1 class="page-title"><?php esc_html_e('Nothing Found Here', 'huettenbau-oberi-theme'); ?></h1>
-    </header><!-- .entry-header -->
+      <h1 class="page-title">Nichts gefunden!</h1>
+    </header>
 
     <div class="entry-content">
-      <p><?php esc_html_e('It looks like nothing was found at this location.', 'huettenbau-oberi-theme'); ?></p>
-    </div><!-- .entry-content -->
+      <p>Es scheint, als ob hier nicht zu finden ist.</p>
+      <p>Hast du bereits in den Hütten nachgeschaut?</p>
+    </div>
 
-  </article><!-- .no-results -->
-</div><!-- .site-content -->
+  </article>
+</div>
 <?php
 get_sidebar();
 get_footer();
