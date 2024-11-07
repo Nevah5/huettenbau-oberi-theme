@@ -27,7 +27,7 @@ jobs:
           if [[ ${{ github.ref_name }} == 'main' ]]; then
             latest=$develop
           else
-            latest=$(git describe --tags --exact-match --abbrev=0)
+            latest=$(git describe --tags --abbrev=0)
           fi
 
           echo "LATEST=$latest" >> $GITHUB_OUTPUT
