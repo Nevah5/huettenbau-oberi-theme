@@ -53,7 +53,7 @@ main.page-design {
         gap: $size-xxl;
 
         .content-section__content {
-          width: 70%;
+          max-width: 60ch;
         }
         h2 {
           margin-bottom: 0;
