@@ -25,9 +25,7 @@
         </figcaption>
       </figure>
       <div class="carousel__nav" style="--slider-index: 0;">
-        <button class="carousel__button carousel__button--prev">
-          <img src="<?php esc_url(get_parent_theme_file_uri('assets/icons/arrow-left.svg')) ?>" alt="Previous icon" />
-        </button>
+        <button class="carousel__button carousel__button--prev"></button>
         <div class="carousel__img carousel__img--active"
           style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
           src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Code 1"></div>
@@ -64,9 +62,7 @@
         <div class="carousel__img"
           style="background-image: url('https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg')"
           src="https://huettenbau-oberi.ch/wp-content/uploads/2023/11/IMG_3717-scaled.jpeg" caption="Code 10"></div>
-        <button class="carousel__button carousel__button--next">
-          <img src="<?php esc_url(get_parent_theme_file_uri('assets/icons/arrow-right.svg')) ?>" alt="Next icon" />
-        </button>
+        <button class="carousel__button carousel__button--next"></button>
       </div>
     </div>
   </section>
