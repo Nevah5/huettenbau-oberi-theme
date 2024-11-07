@@ -142,9 +142,14 @@
       outline: none;
       border: none;
       background-position: center;
-      background-size: 90%;
+      background-size: 50%;
       background-repeat: no-repeat;
+      background-color: rgba($color-background, 0.3);
+      filter: invert(1);
 
+      &:hover {
+        background-color: rgba($color-background, 0.6);
+      }
       &.carousel__button--prev {
         left: 0;
       }
