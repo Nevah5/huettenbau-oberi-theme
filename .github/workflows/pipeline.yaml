@@ -27,7 +27,7 @@ jobs:
           if [[ ${{ github.ref_name }} == 'main' ]]; then
             latest=$develop
           else
-            latest=$(git describe --tags --exact-match --abbrev=0)
+            latest=$(git describe --tags --abbrev=0)
           fi
 
           echo "LATEST=$latest" >> $GITHUB_OUTPUT
@@ -125,6 +125,7 @@ jobs:
           cp *.php build/
           cp screenshot.png build/
           cp assets/ build/ -r
+          cp scripts/ build/ -r
           cp LICENSE build/
       - name: Generate artifact name
         id: generate_artifact_name

@@ -6,7 +6,7 @@ main.page-design {
 
   section {
     &.hero-section {
-      height: 600px;
+      height: 750px;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -35,29 +35,67 @@ main.page-design {
         left: 0;
         height: 100%;
         width: 100%;
-        background-color: rgba($color-background, 0.3);
+        background-color: rgba($color-background, 0.2);
       }
     }
-    &:not(.hero-section) {
+    &.content-section {
+      width: calc(100% - 2 * $size-xl);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      padding: 48px;
+      margin: 4rem 0 0;
+      padding: 0 $size-xl;
 
-      h2 {
-        font-size: $size-xxl;
-        margin-bottom: 1em;
+      @mixin content-section-title-left-right-styling {
+        justify-content: center;
+        align-items: flex-start;
+        gap: $size-xxl;
+
+        h2 {
+          margin-bottom: 0;
+          text-align: right;
+        }
       }
-      div {
+      &.content-section--title-left {
+        flex-direction: row;
+        @include content-section-title-left-right-styling;
+      }
+      &.content-section--title-right {
+        flex-direction: row-reverse;
+        @include content-section-title-left-right-styling;
+        text-align: left;
+      }
+      .content-section__content {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 48px;
+        max-width: 60ch;
+
+        & > div {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          flex-direction: column;
+        }
       }
-      p {
-        width: fit-content;
-        max-width: 70ch;
+      h2 {
+        margin-bottom: $size-lg;
+      }
+
+      @media only screen and (max-width: 991px) {
+        &.content-section--title-left {
+          flex-direction: column;
+          align-items: center;
+          gap: $size-md;
+        }
+        &.content-section--title-right {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: $size-md;
+        }
       }
     }
   }

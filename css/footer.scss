@@ -1,6 +1,7 @@
 h2.farewell {
   width: 100vw;
   text-align: center;
+  margin-top: $size-xxl;
 }
 
 @mixin navigation-styling() {
@@ -138,7 +139,7 @@ h2.farewell {
         flex-wrap: wrap;
       }
       .logo {
-        width: 400px;
+        width: 75%;
       }
     }
     .wrapper-right {
@@ -147,14 +148,12 @@ h2.farewell {
       max-width: 100vw;
       margin-top: 40px;
       padding: 0 $padding;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: flex-start;
       align-items: stretch;
       flex-wrap: wrap;
+      gap: $size-md;
 
-      .button-wrapper {
-        margin-left: 40px;
-      }
       .legal {
         width: calc(100% - 2 * $padding);
       }

@@ -18,6 +18,10 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
     'title' => __('Main Page', 'huettenbau-oberi-theme'),
     'priority' => 30,
   ));
+  $wp_customize->add_section('huettenbau-oberi-carousel-settings', array(
+    'title' => __('Carousel Settings', 'huettenbau-oberi-theme'),
+    'priority' => 40,
+  ));
 
   // Add a setting
   $wp_customize->add_setting('huettenbau-oberi-page-hero-span', array(
@@ -127,6 +131,30 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
     'settings' => 'huettenbau-oberi-page-section4-text',
     'type' => 'text',
   ));
+
+  for ($i = 1; $i <= 20; $i++) {
+    // Image
+    $wp_customize->add_setting('huettenbau-oberi-page-carousel-image' . $i, array(
+      'default' => '',
+      'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'huettenbau-oberi-page-carousel-image' . $i . '-control', array(
+      'label' => __('Image ' . $i, 'huettenbau-oberi-theme'),
+      'section' => 'huettenbau-oberi-carousel-settings',
+      'settings' => 'huettenbau-oberi-page-carousel-image' . $i,
+    )));
+
+    // Caption Text
+    $wp_customize->add_setting('huettenbau-oberi-page-carousel-image' . $i . '-caption-text', array(
+      'default' => __('Example Caption', 'huettenbau-oberi-theme'),
+    ));
+    $wp_customize->add_control('huettenbau-oberi-page-carousel-image' . $i . '-caption-text-control', array(
+      'label' => __('', 'huettenbau-oberi-theme'),
+      'section' => 'huettenbau-oberi-carousel-settings',
+      'settings' => 'huettenbau-oberi-page-carousel-image' . $i . '-caption-text',
+      'type' => 'text',
+    ));
+  }
 }
 add_action('customize_register', 'huettenbau_oberi_theme_customize_register');
 
@@ -138,6 +166,8 @@ function huettenbau_oberi_theme_customize_register_enqueue()
   $internal_link_icon = esc_url(get_parent_theme_file_uri('assets/icons/internal-icon.svg'));
   $external_link_icon = esc_url(get_parent_theme_file_uri('assets/icons/external-icon.svg'));
   $download_link_icon = esc_url(get_parent_theme_file_uri('assets/icons/download-icon.svg'));
+  $next_icon = esc_url(get_parent_theme_file_uri('assets/icons/arrow-right.svg'));
+  $previous_icon = esc_url(get_parent_theme_file_uri('assets/icons/arrow-left.svg'));
 
   $link_icons_css = "
     section.hero-section {
@@ -159,8 +189,17 @@ function huettenbau_oberi_theme_customize_register_enqueue()
     p a.link-download-after::after {
       background-image: url('{$download_link_icon}');
     }
+
+    button.carousel__button--prev {
+      background-image: url('{$previous_icon}');
+    }
+    button.carousel__button--next {
+      background-image: url('{$next_icon}');
+    }
   ";
   wp_add_inline_style('huettenbau-oberi-theme', $link_icons_css);
+  wp_enqueue_script('carousel', get_template_directory_uri() . '/scripts/carousel.js', array(), false, true);
+  wp_enqueue_script('header', get_template_directory_uri() . '/scripts/header.js', array(), false, true);
 }
 
 add_action('wp_enqueue_scripts', 'huettenbau_oberi_theme_customize_register_enqueue');

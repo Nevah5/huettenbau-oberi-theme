@@ -45,12 +45,17 @@
           width: 60%;
           height: auto;
           border-radius: 8px;
+
+          @media only screen and (max-width: 575px) {
+            width: 100%;
+          }
         }
         figcaption {
           margin-top: $size-xs;
           color: $color-secondary-light;
           max-width: 50%;
           width: fit-content;
+          text-align: center;
         }
       }
     }
