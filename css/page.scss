@@ -39,12 +39,13 @@ main.page-design {
       }
     }
     &.content-section {
-      width: 100%;
+      width: calc(100% - 2 * $size-xl);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       margin: $size-xl 0;
+      padding: 0 $size-xl;
 
       @mixin content-section-title-left-right-styling {
         justify-content: center;
@@ -56,6 +57,7 @@ main.page-design {
         }
         h2 {
           margin-bottom: 0;
+          text-align: right;
         }
       }
       &.content-section--title-left {
@@ -65,6 +67,7 @@ main.page-design {
       &.content-section--title-right {
         flex-direction: row-reverse;
         @include content-section-title-left-right-styling;
+        text-align: left;
       }
       .content-section__content {
         display: flex;
@@ -81,6 +84,20 @@ main.page-design {
       }
       h2 {
         margin-bottom: $size-lg;
+      }
+
+      @media only screen and (max-width: 991px) {
+        &.content-section--title-left {
+          flex-direction: column;
+          align-items: center;
+          gap: $size-md;
+        }
+        &.content-section--title-right {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: $size-md;
+        }
       }
     }
   }
