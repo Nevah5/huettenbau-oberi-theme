@@ -5,7 +5,6 @@ const disableButtonIfUnnecessary = (carousel) => {
   const imgAmount = carousel.querySelectorAll('.carousel__img').length;
 
   const maxItems = parseInt(/\d+/.exec(carousel.getAttribute('style'))[0]);
-  console.log("check");
 
   if (imgAmount <= maxItems) {
     previousButton.style = 'display: none';

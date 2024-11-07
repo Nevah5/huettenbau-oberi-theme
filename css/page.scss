@@ -6,7 +6,7 @@ main.page-design {
 
   section {
     &.hero-section {
-      height: 600px;
+      height: 750px;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -35,7 +35,7 @@ main.page-design {
         left: 0;
         height: 100%;
         width: 100%;
-        background-color: rgba($color-background, 0.3);
+        background-color: rgba($color-background, 0.2);
       }
     }
     &:not(.hero-section) {

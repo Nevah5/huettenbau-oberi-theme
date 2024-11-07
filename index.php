@@ -51,13 +51,13 @@ function getCarousel()
       <?php echo get_theme_mod('huettenbau-oberi-page-section1-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
     </h2>
     <?php echo get_theme_mod('huettenbau-oberi-page-section1-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
+    <?= getCarousel() ?>
   </section>
   <section class="section2">
     <h2>
       <?php echo get_theme_mod('huettenbau-oberi-page-section2-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
     </h2>
     <?php echo get_theme_mod('huettenbau-oberi-page-section2-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
-    <?= getCarousel() ?>
   </section>
   <section class="section3">
     <h2>
