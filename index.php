@@ -46,30 +46,40 @@ function getCarousel()
     </h1>
     <div class="image-overlay"></div>
   </section>
-  <section class="section1">
+  <section class="content-section">
     <h2>
       <?php echo get_theme_mod('huettenbau-oberi-page-section1-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
     </h2>
-    <?php echo get_theme_mod('huettenbau-oberi-page-section1-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
+    <div class="content-section__content">
+      <?php echo get_theme_mod('huettenbau-oberi-page-section1-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
+    </div>
+  </section>
+  <section class="content-section">
     <?= getCarousel() ?>
   </section>
-  <section class="section2">
+  <section class="content-section">
     <h2>
       <?php echo get_theme_mod('huettenbau-oberi-page-section2-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
     </h2>
-    <?php echo get_theme_mod('huettenbau-oberi-page-section2-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
+    <div class="content-section__content">
+      <?php echo get_theme_mod('huettenbau-oberi-page-section2-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
+    </div>
   </section>
-  <section class="section3">
+  <section class="content-section">
     <h2>
       <?php echo get_theme_mod('huettenbau-oberi-page-section3-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
     </h2>
-    <?php echo get_theme_mod('huettenbau-oberi-page-section3-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
+    <div class="content-section__content">
+      <?php echo get_theme_mod('huettenbau-oberi-page-section3-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
+    </div>
   </section>
-  <section class="section4">
+  <section class="content-section">
     <h2>
       <?php echo get_theme_mod('huettenbau-oberi-page-section4-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
     </h2>
-    <?php echo get_theme_mod('huettenbau-oberi-page-section4-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
+    <div class="content-section__content">
+      <?php echo get_theme_mod('huettenbau-oberi-page-section4-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
+    </div>
   </section>
 </main>
 <?php get_template_part('footer') ?>

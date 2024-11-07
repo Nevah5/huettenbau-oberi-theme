@@ -38,31 +38,43 @@ main.page-design {
         background-color: rgba($color-background, 0.2);
       }
     }
-    &:not(.hero-section) {
+    &.content-section {
+      width: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      padding: 48px;
+      margin: $size-xl 0;
 
-      h2 {
-        font-size: $size-xxl;
-        margin-bottom: 1em;
+      &.content-section--title-left {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: $size-xxl;
+
+        .content-section__content {
+          width: 70%;
+        }
+        h2 {
+          margin-bottom: 0;
+        }
       }
-      // breaks carousel styles
-      // div:not(.carousel) {
-      //   display: flex;
-      //   justify-content: center;
-      //   align-items: center;
-      //   gap: 48px;
-      // }
-      p {
-        width: fit-content;
-        max-width: 70ch;
+      .content-section__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        & > div {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+      h2 {
+        margin-bottom: $size-lg;
       }
     }
-  }
-  .carousel {
-    margin: 48px 0;
   }
 }
