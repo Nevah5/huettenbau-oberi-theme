@@ -46,7 +46,7 @@ function getCarousel()
     </h1>
     <div class="image-overlay"></div>
   </section>
-  <section class="content-section">
+  <section class="content-section content-section--title-left">
     <h2>
       <?php echo get_theme_mod('huettenbau-oberi-page-section1-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
     </h2>
@@ -54,10 +54,10 @@ function getCarousel()
       <?php echo get_theme_mod('huettenbau-oberi-page-section1-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
     </div>
   </section>
-  <section class="content-section">
+  <section class="content-section content-section--title-left">
     <?= getCarousel() ?>
   </section>
-  <section class="content-section">
+  <section class="content-section content-section--title-left">
     <h2>
       <?php echo get_theme_mod('huettenbau-oberi-page-section2-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
     </h2>
@@ -65,7 +65,7 @@ function getCarousel()
       <?php echo get_theme_mod('huettenbau-oberi-page-section2-text', __('<p>Section Text</p>', 'huettenbau-oberi-theme')); ?>
     </div>
   </section>
-  <section class="content-section">
+  <section class="content-section content-section--title-left">
     <h2>
       <?php echo get_theme_mod('huettenbau-oberi-page-section3-title', __('Section Title', 'huettenbau-oberi-theme')); ?>
     </h2>

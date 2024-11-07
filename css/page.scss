@@ -46,8 +46,7 @@ main.page-design {
       align-items: center;
       margin: $size-xl 0;
 
-      &.content-section--title-left {
-        flex-direction: row;
+      @mixin content-section-title-left-right-styling {
         justify-content: center;
         align-items: flex-start;
         gap: $size-xxl;
@@ -58,6 +57,14 @@ main.page-design {
         h2 {
           margin-bottom: 0;
         }
+      }
+      &.content-section--title-left {
+        flex-direction: row;
+        @include content-section-title-left-right-styling;
+      }
+      &.content-section--title-right {
+        flex-direction: row-reverse;
+        @include content-section-title-left-right-styling;
       }
       .content-section__content {
         display: flex;
