@@ -18,6 +18,10 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
     'title' => __('Main Page', 'huettenbau-oberi-theme'),
     'priority' => 30,
   ));
+  $wp_customize->add_section('huettenbau-oberi-carousel-settings', array(
+    'title' => __('Carousel Settings', 'huettenbau-oberi-theme'),
+    'priority' => 40,
+  ));
 
   // Add a setting
   $wp_customize->add_setting('huettenbau-oberi-page-hero-span', array(
@@ -127,6 +131,30 @@ function huettenbau_oberi_theme_customize_register($wp_customize)
     'settings' => 'huettenbau-oberi-page-section4-text',
     'type' => 'text',
   ));
+
+  for ($i = 0; $i < 20; $i++) {
+    // Image
+    $wp_customize->add_setting('huettenbau-oberi-page-carousel-image' . $i, array(
+      'default' => '',
+      'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'huettenbau-oberi-page-carousel-image' . $i . '-control', array(
+      'label' => __('Image ' . $i, 'huettenbau-oberi-theme'),
+      'section' => 'huettenbau-oberi-carousel-settings',
+      'settings' => 'huettenbau-oberi-page-carousel-image' . $i,
+    )));
+
+    // Caption Text
+    $wp_customize->add_setting('huettenbau-oberi-page-carousel-image' . $i . '-caption-text', array(
+      'default' => __('Example Caption', 'huettenbau-oberi-theme'),
+    ));
+    $wp_customize->add_control('huettenbau-oberi-page-carousel-image' . $i . '-caption-text-control', array(
+      'label' => __('Image ' . $i . ' Caption', 'huettenbau-oberi-theme'),
+      'section' => 'huettenbau-oberi-carousel-settings',
+      'settings' => 'huettenbau-oberi-page-carousel-image' . $i . '-caption-text',
+      'type' => 'text',
+    ));
+  }
 }
 add_action('customize_register', 'huettenbau_oberi_theme_customize_register');
 
