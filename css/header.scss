@@ -6,10 +6,17 @@
   justify-content: space-between;
   align-items: center;
   padding: $size-md $size-xl;
-  background-color: rgba($color-background, 0.5);
-  backdrop-filter: blur(8px);
+  background-color: transparent;
+  backdrop-filter: unset;
+  transition:
+    background-color 0.3s ease-in-out,
+    backdrop-filter 0.3s ease-in-out;
   z-index: 99;
 
+  &:hover {
+    background-color: rgba($color-background, 0.5) !important;
+    backdrop-filter: blur(8px) !important;
+  }
   .site-logo {
     max-width: 280px;
 
