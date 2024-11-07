@@ -153,9 +153,6 @@ h2.farewell {
       flex-wrap: wrap;
       gap: $size-md;
 
-      .button-wrapper {
-        margin-left: 40px;
-      }
       .legal {
         width: calc(100% - 2 * $padding);
       }
