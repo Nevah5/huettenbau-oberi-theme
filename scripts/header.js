@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', _ => {
   const header = document.querySelector('.site-header');
   const heroSection = document.querySelector('.page-design section.hero-section');
 
-  heroSection.style = `margin-top: -${header.clientHeight}px;`;
+  if (heroSection !== null)
+    heroSection.style = `margin-top: -${header.clientHeight}px;`;
 
   window.addEventListener('scroll', _ => {
     if (window.scrollY == 0) {
