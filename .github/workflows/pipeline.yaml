@@ -109,9 +109,12 @@ jobs:
       - name: Setup dependencies
         run: |
           npm install -g sass
+          npm install -g postcss postcss-cli autoprefixer
       - name: Compile SCSS
         run: |
-          sass style.scss --no-source-map -q > style.css
+          sass style.scss style.css --style=compressed --no-source-map -q
+      - name: Add vendor prefixes
+        run: postcss style.css --use autoprefixer -o style.css
       - name: Add header to style.css
         run: |
           echo '${{ env.FILE_HEADER }}' | cat - style.css > temp && mv temp style.css
