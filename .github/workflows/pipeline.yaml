@@ -6,7 +6,7 @@ on:
 jobs:
   versioning:
     runs-on:
-      labels: self-hosted
+      labels: ubuntu-latest
     name: Versioning
     permissions:
       contents: write
@@ -98,7 +98,7 @@ jobs:
         */
     name: Build Theme
     runs-on:
-      labels: self-hosted
+      labels: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -153,7 +153,7 @@ jobs:
     permissions:
       contents: write
     runs-on:
-      labels: self-hosted
+      labels: ubuntu-latest
     steps:
       - name: Setup tmp directory
         run: |
