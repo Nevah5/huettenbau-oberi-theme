@@ -5,6 +5,8 @@ const disableButtonIfUnnecessary = (carousel) => {
   const imgAmount = carousel.querySelectorAll('.carousel__img').length;
 
   const maxItems = parseInt(/\d+/.exec(carousel.getAttribute('style'))[0]);
+  const maxIndex = Math.ceil(imgAmount / maxItems) - 1;
+  const index = parseInt(/\d+/.exec(nav.getAttribute('style'))[0]);
 
   if (imgAmount <= maxItems) {
     previousButton.style = 'display: none';
@@ -12,6 +14,9 @@ const disableButtonIfUnnecessary = (carousel) => {
   } else {
     previousButton.style = 'display: initial';
     nextButton.style = 'display: initial';
+  }
+  if (index > maxIndex) {
+    nav.style = `--slider-index: 0`;
   }
 }
 
@@ -28,12 +33,24 @@ const setPageIndicators = (carousel, index) => {
 }
 
 const setupPageIndicator = (carousel) => {
+  let pageIndicator = carousel.querySelector('.carousel__page-indicator');
+  if (pageIndicator) {
+    pageIndicator.remove();
+  };
+
   const nav = carousel.querySelector('.carousel__nav');
-  const pageIndicator = document.createElement('div');
+  pageIndicator = document.createElement('div');
   pageIndicator.className = 'carousel__page-indicator';
   const imgAmount = carousel.querySelectorAll('.carousel__img').length;
   const maxItems = parseInt(/\d+/.exec(carousel.getAttribute('style'))[0]);
   const maxIndex = Math.ceil(imgAmount / maxItems) - 1;
+  const index = parseInt(/\d+/.exec(nav.getAttribute('style'))[0]);
+
+  if (maxIndex === 0) {
+    carousel.appendChild(pageIndicator);
+    return
+  };
+
   for (let i = 0; i <= maxIndex; i++) {
     const dot = document.createElement('span');
     dot.className = 'carousel__page-indicator-dot';
@@ -44,6 +61,7 @@ const setupPageIndicator = (carousel) => {
     pageIndicator.appendChild(dot);
   }
   carousel.appendChild(pageIndicator);
+  setPageIndicators(carousel, index);
 }
 
 const setupButtons = (carousel) => {
@@ -157,6 +175,7 @@ const onBodyResize = _ => {
     }
 
     disableButtonIfUnnecessary(carousel);
+    setupPageIndicator(carousel);
   });
 }
 
