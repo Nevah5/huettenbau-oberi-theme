@@ -4,48 +4,6 @@ h2.farewell {
   margin-top: $size-xxl;
 }
 
-@mixin navigation-styling() {
-  .navigation {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-
-    h3 {
-      font-size: calc($size-sm + 0.1rem);
-      margin: 0;
-      padding: 0;
-    }
-    ul {
-      position: relative;
-      list-style: none;
-      padding: 0;
-      padding-left: $size-xs;
-      margin: 0;
-
-      &::before {
-        content: "";
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 1px;
-        background-color: $color-secondary;
-      }
-      li {
-        margin: 0;
-        padding: 0;
-        font-size: $size-md;
-        margin-bottom: $size-xxs;
-
-        a {
-          text-decoration: none;
-          display: block;
-        }
-      }
-    }
-  }
-}
 .site-footer {
   width: 100vw;
   height: 300px;
@@ -54,20 +12,11 @@ h2.farewell {
 
   .wrapper-left {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: column;
     gap: 48px;
-    width: 70%;
+    width: 40%;
 
-    .navigation-wrapper {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      padding: 0 0 0 5%;
-      gap: $size-xxl;
-
-      @include navigation-styling();
-    }
     .logo {
       display: flex;
       justify-content: flex-start;
@@ -86,40 +35,56 @@ h2.farewell {
   }
   .wrapper-right {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: column;
-    width: 30%;
+    padding: 0 $size-xxl;
+    gap: $size-xxl;
+    width: calc(60% - 2 * $size-xxl);
 
-    @include navigation-styling();
-    .legal {
+    .navigation-wrapper {
       display: flex;
-      justify-content: space-between;
-      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: $size-xl;
 
-      ul.menu {
-        $space-between: 16px;
+      .navigation {
         display: flex;
         justify-content: flex-start;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        gap: calc($space-between * 2);
+        align-items: flex-start;
+        flex-direction: column;
 
-        li {
-          width: fit-content;
-          position: relative;
+        h3 {
+          font-size: calc($size-sm + 0.1rem);
           margin: 0;
           padding: 0;
+        }
+        ul {
+          position: relative;
+          list-style: none;
+          padding: 0;
+          padding-left: $size-xs;
+          margin: 0;
 
-          &:not(:last-child)::after {
-            content: "|";
+          &::before {
+            content: "";
+            height: 100%;
             position: absolute;
             top: 0;
-            right: calc($space-between * -1);
+            left: 0;
+            width: 1px;
+            background-color: $color-secondary;
           }
-          a {
-            text-decoration: none;
-            display: block;
+          li {
+            margin: 0;
+            padding: 0;
+            font-size: $size-md;
+            margin-bottom: $size-xxs;
+
+            a {
+              text-decoration: none;
+              display: block;
+            }
           }
         }
       }
@@ -132,12 +97,6 @@ h2.farewell {
     .wrapper-left {
       width: 100%;
 
-      .navigation-wrapper {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-wrap: wrap;
-      }
       .logo {
         width: 75%;
       }
@@ -153,23 +112,60 @@ h2.farewell {
       align-items: stretch;
       flex-wrap: wrap;
       gap: $size-md;
-
-      .legal {
-        width: calc(100% - 2 * $padding);
-      }
     }
   }
 }
 .accent-bar {
-  width: 100vw;
-  height: $size-xxl;
-  background-color: $color-accent;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: $size-sm $size-xxl;
+  width: calc(100vw - 2 * $size-xxl);
+  background-color: $color-accent;
   align-items: center;
+  color: $color-background;
 
   span {
     font-weight: bold;
     color: $color-background;
+  }
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    ul.menu {
+      $space-between: 16px;
+      display: flex;
+      justify-content: flex-start;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      gap: calc($space-between * 2);
+
+      li {
+        width: fit-content;
+        position: relative;
+        margin: 0;
+        padding: 0;
+
+        &:not(:last-child)::after {
+          content: "|";
+          position: absolute;
+          top: 0;
+          right: calc($space-between * -1);
+        }
+        a {
+          text-decoration: none;
+          display: block;
+          font-weight: bold;
+          color: $color-background;
+
+          &:hover {
+            color: $color-text;
+          }
+        }
+      }
+    }
   }
 }

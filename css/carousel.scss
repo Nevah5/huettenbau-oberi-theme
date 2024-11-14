@@ -39,7 +39,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
 
   @media only screen and (max-width: 991px) {
     --carousel-width: 90vw;
@@ -55,7 +54,7 @@
     }
   }
   .carousel__preview {
-    margin: 0;
+    margin: 0 0 1rem;
     width: calc(100% - 1rem);
     gap: 1rem;
     display: flex;
@@ -155,6 +154,25 @@
       }
       &.carousel__button--next {
         right: 0;
+      }
+    }
+  }
+  .carousel__page-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .carousel__page-indicator-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      border: 2px solid $color-accent;
+      cursor: pointer;
+      margin: 0.5rem;
+
+      &.carousel__page-indicator-dot--active {
+        background-color: $color-accent;
       }
     }
   }

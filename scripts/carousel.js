@@ -5,6 +5,8 @@ const disableButtonIfUnnecessary = (carousel) => {
   const imgAmount = carousel.querySelectorAll('.carousel__img').length;
 
   const maxItems = parseInt(/\d+/.exec(carousel.getAttribute('style'))[0]);
+  const maxIndex = Math.ceil(imgAmount / maxItems) - 1;
+  const index = parseInt(/\d+/.exec(nav.getAttribute('style'))[0]);
 
   if (imgAmount <= maxItems) {
     previousButton.style = 'display: none';
@@ -13,6 +15,53 @@ const disableButtonIfUnnecessary = (carousel) => {
     previousButton.style = 'display: initial';
     nextButton.style = 'display: initial';
   }
+  if (index > maxIndex) {
+    nav.style = `--slider-index: 0`;
+  }
+}
+
+const setPageIndicators = (carousel, index) => {
+  const pageIndicators = carousel.querySelector('.carousel__page-indicator').children;
+
+  for (let i = 0; i < pageIndicators.length; i++) {
+    if (i === index) {
+      pageIndicators[i].classList.add('carousel__page-indicator-dot--active');
+      continue;
+    }
+    pageIndicators[i].classList.remove('carousel__page-indicator-dot--active');
+  };
+}
+
+const setupPageIndicator = (carousel) => {
+  let pageIndicator = carousel.querySelector('.carousel__page-indicator');
+  if (pageIndicator) {
+    pageIndicator.remove();
+  };
+
+  const nav = carousel.querySelector('.carousel__nav');
+  pageIndicator = document.createElement('div');
+  pageIndicator.className = 'carousel__page-indicator';
+  const imgAmount = carousel.querySelectorAll('.carousel__img').length;
+  const maxItems = parseInt(/\d+/.exec(carousel.getAttribute('style'))[0]);
+  const maxIndex = Math.ceil(imgAmount / maxItems) - 1;
+  const index = parseInt(/\d+/.exec(nav.getAttribute('style'))[0]);
+
+  if (maxIndex === 0) {
+    carousel.appendChild(pageIndicator);
+    return
+  };
+
+  for (let i = 0; i <= maxIndex; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'carousel__page-indicator-dot';
+    dot.addEventListener('click', _ => {
+      nav.style = `--slider-index: ${i}`;
+      setPageIndicators(carousel, i);
+    });
+    pageIndicator.appendChild(dot);
+  }
+  carousel.appendChild(pageIndicator);
+  setPageIndicators(carousel, index);
 }
 
 const setupButtons = (carousel) => {
@@ -25,9 +74,11 @@ const setupButtons = (carousel) => {
     const index = parseInt(/\d+/.exec(nav.getAttribute('style'))[0]);
     if (index === 0) {
       nav.style = `--slider-index: ${maxIndex}`;
+      setPageIndicators(carousel, maxIndex);
       return
     };
     nav.style = `--slider-index: ${index - 1}`;
+    setPageIndicators(carousel, index - 1);
   });
   nav.querySelector('.carousel__button--next').addEventListener('click', _ => {
     const maxItems = parseInt(/\d+/.exec(carousel.getAttribute('style'))[0]);
@@ -35,12 +86,15 @@ const setupButtons = (carousel) => {
     const index = parseInt(/\d+/.exec(nav.getAttribute('style'))[0]);
     if (index === maxIndex) {
       nav.style = `--slider-index: 0`;
+      setPageIndicators(carousel, 0);
       return
     }
     nav.style = `--slider-index: ${index + 1}`;
+    setPageIndicators(carousel, index + 1);
   });
 
   disableButtonIfUnnecessary(carousel);
+  setPageIndicators(carousel, 0);
 }
 
 const setupImageSelection = (carousel) => {
@@ -99,6 +153,7 @@ const setupInitPreview = (carousel) => {
 
 const initCarousels = _ => {
   document.querySelectorAll('.carousel').forEach(carousel => {
+    setupPageIndicator(carousel);
     setupButtons(carousel);
     setupInitPreview(carousel);
     setupImageSelection(carousel);
@@ -120,6 +175,7 @@ const onBodyResize = _ => {
     }
 
     disableButtonIfUnnecessary(carousel);
+    setupPageIndicator(carousel);
   });
 }
 
