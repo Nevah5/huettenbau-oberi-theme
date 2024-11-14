@@ -7,10 +7,9 @@ document.addEventListener('DOMContentLoaded', _ => {
 
   window.addEventListener('scroll', _ => {
     if (window.scrollY == 0) {
-      header.style = 'background-color: transparent; backdrop-filter: unset;';
+      header.style = 'background-color: transparent; backdrop-filter: unset; -webkit-backdrop-filter: unset;';
     } else {
-      header.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
-      header.style.backdropFilter = 'blur(8px)';
+      header.style = 'background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);';
     }
   });
 });
