@@ -1,9 +1,6 @@
 <h2 class="farewell">Wie freuen uns auf dich!</h2>
 <footer class="site-footer">
   <div class="wrapper-left">
-    <div class="navigation-wrapper">
-
-    </div>
     <div class="logo">
       <?php
       if (function_exists('the_custom_logo')) {
@@ -72,7 +69,7 @@
   </div>
 </footer>
 <div class="accent-bar">
-  <span>&copy; <?php echo date("Y"); ?> - <?php the_title(); ?>. Alle Rechte vorberhalten.</span>
+  <span>&copy; <?php echo date("Y"); ?> - Hüttenbau Oberi. Alle Rechte vorbehalten.</span>
   <?php
   wp_nav_menu(array(
     'theme_location' => 'menu-footer-legal',
