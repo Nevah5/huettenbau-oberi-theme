@@ -3,6 +3,27 @@
   <div class="wrapper-left">
     <div class="navigation-wrapper">
 
+    </div>
+    <div class="logo">
+      <?php
+      if (function_exists('the_custom_logo')) {
+      ?>
+        <div class="site-logo">
+          <?= the_custom_logo() ?>
+        </div>
+      <?php
+      } else {
+      ?>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
+          <?= bloginfo('name'); ?>
+        </a>
+      <?php
+      }
+      ?>
+    </div>
+  </div>
+  <div class="wrapper-right">
+    <div class="navigation-wrapper">
       <div class="navigation">
         <h3>Navigation</h3>
         <?php
@@ -27,34 +48,14 @@
         ));
         ?>
       </div>
-    </div>
-    <div class="logo">
-      <?php
-      if (function_exists('the_custom_logo')) {
-      ?>
-        <div class="site-logo">
-          <?= the_custom_logo() ?>
-        </div>
-      <?php
-      } else {
-      ?>
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
-          <?= bloginfo('name'); ?>
-        </a>
-      <?php
-      }
-      ?>
-
-    </div>
-  </div>
-  <div class="wrapper-right">
-    <div class="navigation">
-      <h3>Administration</h3>
-      <?php
-      wp_nav_menu(array(
-        'theme_location' => 'menu-footer-admin',
-      ));
-      ?>
+      <div class="navigation">
+        <h3>Administration</h3>
+        <?php
+        wp_nav_menu(array(
+          'theme_location' => 'menu-footer-admin',
+        ));
+        ?>
+      </div>
     </div>
     <?php
     if (function_exists('wp_nav_menu')) {
@@ -68,18 +69,16 @@
       echo $menu;
     }
     ?>
-    <div class="legal">
-      <p>&copy; 2024 - Hüttenbau Oberi<br />
-        Alle Rechte vorbehalten</p>
-      <?php
-      wp_nav_menu(array(
-        'theme_location' => 'menu-footer-legal',
-      ));
-      ?>
-    </div>
   </div>
 </footer>
-<div class="accent-bar"><span>&copy; <?php echo date("Y"); ?> - Hüttenbau Oberi</span></div>
+<div class="accent-bar">
+  <span>&copy; <?php echo date("Y"); ?> - <?php the_title(); ?>. Alle Rechte vorberhalten.</span>
+  <?php
+  wp_nav_menu(array(
+    'theme_location' => 'menu-footer-legal',
+  ));
+  ?>
+</div>
 <?php wp_footer(); ?>
 </body>
 
